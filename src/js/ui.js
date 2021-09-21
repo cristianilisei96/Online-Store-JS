@@ -82,8 +82,8 @@ class UI {
             </div>
         </div>
         <div id="paginationProducts" class="col-md-12 mt-4 text-center">
-            <button id="prev" class="btn btn-success prev" disabled href="#">prev</button>
-            <button id="next" class="btn btn-success next" href="#">next</button>
+            <button id="prev" class="btn btn-success prev" disabled href="#">Previous Product</button>
+            <button id="next" class="btn btn-success next" href="#">Next Product</button>
         </div>`;
     }
 
