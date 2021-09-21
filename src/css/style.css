@@ -122,6 +122,10 @@ footer .copyright svg {
     border: 3px solid #000;
 }
 
+#loginPage input.is-invalid {
+    border: 3px solid #dc3545;
+}
+
 #loginPage input:focus {
     border: 3px solid #198754;
     box-shadow: none;
