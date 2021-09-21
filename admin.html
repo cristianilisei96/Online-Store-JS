@@ -4,7 +4,7 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Admin section</title>
+	<title>Admin</title>
 	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./src/css/style.css">
 	<script defer src="./node_modules/@fortawesome/fontawesome-free/js/brands.js"></script>
@@ -12,7 +12,7 @@
 	<script defer src="./node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"></script>
 </head>
 <body>
-<div id="loginPage" class="d-none">
+<div id="loginPage" class="text-white">
 	<div class="container-fluid h-100">
 		<div class="row justify-content-center align-items-center h-100">
 			<div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
@@ -20,18 +20,20 @@
 					<h1 class="color-default">Admin</h1>
 					<p class="text-white">You probably shouldn't be here.</p>
 				  </div>
-				<form action="#">
+				<form>
 					<div class="form-group mb-3">
-						<input class="form-control form-control-lg" placeholder="User email" type="text">
+						<label for="emailFieldAdmin" class="mb-1">Email</label>
+						<input type="email" id="emailFieldAdmin" class="form-control form-control-lg" required>
 					</div>
 					<div class="form-group mb-3">
-						<input class="form-control form-control-lg" placeholder="Password" type="password">
+						<label for="passwordFieldAdmin" class="mb-1">Password</label>
+						<input type="password" id="passwordFieldAdmin" class="form-control form-control-lg" required>
 					</div>
 					<div class="form-group mb-3">
-						<button class="btn btn-success btn-lg btn-block">Log In</button>
+						<button id="loginBtn" class="btn btn-success btn-lg btn-block">Log In</button>
 					</div>
 					<div class="form-group">
-						<button id="btnGoToHomepage" class="btn btn-warning btn-lg btn-block">
+						<button id="homepageBtn" type="button" class="btn btn-warning btn-lg btn-block">
 							<i class="fas fa-home"></i>
 						</button>
 					</div>
@@ -40,7 +42,7 @@
 		</div>
 	</div>
 </div>
-<div id="app" class="d-">
+<div id="appPage">
 	<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
 		<div class="container">
 		  	<a class="navbar-brand color-default" href="index.html">Ecommerce</a>
@@ -203,6 +205,7 @@
 	</div>
 </div>
 <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 <script src="./node_modules/jquery/dist/jquery.js"></script>
 <script src="./src/js/admin.js" type="module"></script>
 <script src="./src/js/scripts.js"></script>

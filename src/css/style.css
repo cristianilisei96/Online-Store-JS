@@ -118,9 +118,17 @@ footer .copyright svg {
     text-align: center;
 }
 
-#loginForm {
-    display:flex;
-    align-items:center;
+#loginPage input {
+    border: 3px solid #000;
+}
+
+#loginPage input:focus {
+    border: 3px solid #198754;
+    box-shadow: none;
+}
+
+#appPage {
+    display: none;
 }
 
 /* Media Query */
