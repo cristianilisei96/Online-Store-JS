@@ -10,7 +10,7 @@ class UI {
         let output = '';
         products.forEach(product => {
             output += 
-                `<div class="col-md-4">
+                `<div class="col-md-3">
                     <div class="card mb-3">
                         <div class="card-body text-center">
                             <a href="details?id=${product.id}" id="${product.id}" class="details">

@@ -47,3 +47,19 @@ $('a[href*="#"]')
       }
     }
   });
+
+// Script to redirect after type search bar and submit
+let searchInput = document.getElementById('searchInput');
+let searchBtn = document.getElementById('searchBtn');
+
+$("#searchInput").on('keyup', function (e) {
+  if (e.key === 'Enter' || e.keyCode === 13) {
+    window.location = 'search?search=' + searchInput.value;
+  }
+});
+
+searchBtn.addEventListener('click', searchProducts);
+
+function searchProducts() {
+    window.location = 'search?search=' + searchInput.value;
+}
