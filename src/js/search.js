@@ -13,9 +13,6 @@ const categoryFilterURL = 'https://61363d1a8700c50017ef54c3.mockapi.io/products?
 // Insert to restult span title, the searched Parameter
 searchParamSpan.innerHTML = '"' + searchParam + '"';
 
-// Get location on app
-let currentLocation = window.location;
-
 searchBtn.addEventListener('click', searchProducts);
 
 function searchProducts(e) {
