@@ -110,3 +110,7 @@ footer .copyright svg {
     border: 1px dashed #198754;
     display: none;
 }
+
+.buttonToTop:hover svg {
+    color: #198754;
+}
