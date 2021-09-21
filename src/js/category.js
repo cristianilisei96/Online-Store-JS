@@ -23,40 +23,67 @@ console.log('CategoryParamSearch is ' + categoryParamSearch);
 let currentLocation = window.location;
 console.log('CurrentLocation is ' + currentLocation);
 
-if(currentLocation == 'http://localhost:5000/category?filter=mac'){
+const categoryFilterURL = 'https://61363d1a8700c50017ef54c3.mockapi.io/products?category=' + searchParam;
+
+if(window.location.href.indexOf(searchParam) != -1) {
+    console.log('true');
+
+    http.get(categoryFilterURL).then((products) => ui.showProductsToUsers(products));
+
+    if(searchParam === 'mac') {
+        document.getElementById('link-sidebar-mac-filter').classList.add('bg-success');
+    } else if(searchParam === 'iphone') {
+        document.getElementById('link-sidebar-iphone-filter').classList.add('bg-success');
+    } else if(searchParam === 'ipad') {
+        document.getElementById('link-sidebar-ipad-filter').classList.add('bg-success');
+    } else if(searchParam === 'watch') {
+        document.getElementById('link-sidebar-watch-filter').classList.add('bg-success');
+    } else if(searchParam === 'tv') {
+        document.getElementById('link-sidebar-tv-filter').classList.add('bg-success');
+    } else if(searchParam === 'music') {
+        document.getElementById('link-sidebar-music-filter').classList.add('bg-success');
+    } else if(searchParam === 'accessories') {
+        document.getElementById('link-sidebar-accessories-filter').classList.add('bg-success');
+    }
     
-    http.get(macProductsUrl).then((products) => ui.showProductsToUsers(products));
+} else {
+    console.log('false');
+}
 
-    document.getElementById('link-sidebar-mac-filter').classList.add('bg-success');
-
-} else if(currentLocation == 'http://localhost:5000/category?filter=iphone'){
+// if(currentLocation == 'http://localhost:5000/category?filter=mac'){
     
-    http.get(iphoneProductsUrl).then((products) => ui.showProductsToUsers(products));
-    document.getElementById('link-sidebar-iphone-filter').classList.add('bg-success');
+//     http.get(macProductsUrl).then((products) => ui.showProductsToUsers(products));
 
-} else if(currentLocation == 'http://localhost:5000/category?filter=ipad'){
+//     document.getElementById('link-sidebar-mac-filter').classList.add('bg-success');
+
+// } else if(currentLocation == 'http://localhost:5000/category?filter=iphone'){
     
-    http.get(ipadProductsUrl).then((products) => ui.showProductsToUsers(products));
-    document.getElementById('link-sidebar-ipad-filter').classList.add('bg-success');
+//     http.get(iphoneProductsUrl).then((products) => ui.showProductsToUsers(products));
+//     document.getElementById('link-sidebar-iphone-filter').classList.add('bg-success');
 
-} else if(currentLocation == 'http://localhost:5000/category?filter=watch'){
+// } else if(currentLocation == 'http://localhost:5000/category?filter=ipad'){
     
-    http.get(watchProductsUrl).then((products) => ui.showProductsToUsers(products));
-    document.getElementById('link-sidebar-watch-filter').classList.add('bg-success');
+//     http.get(ipadProductsUrl).then((products) => ui.showProductsToUsers(products));
+//     document.getElementById('link-sidebar-ipad-filter').classList.add('bg-success');
 
-} else if(currentLocation == 'http://localhost:5000/category?filter=tv'){
+// } else if(currentLocation == 'http://localhost:5000/category?filter=watch'){
     
-    http.get(tvProductsUrl).then((products) => ui.showProductsToUsers(products));
-    document.getElementById('link-sidebar-tv-filter').classList.add('bg-success');
+//     http.get(watchProductsUrl).then((products) => ui.showProductsToUsers(products));
+//     document.getElementById('link-sidebar-watch-filter').classList.add('bg-success');
 
-} else if(currentLocation == 'http://localhost:5000/category?filter=music'){
+// } else if(currentLocation == 'http://localhost:5000/category?filter=tv'){
     
-    http.get(musicProductsUrl).then((products) => ui.showProductsToUsers(products));
-    document.getElementById('link-sidebar-music-filter').classList.add('bg-success');
+//     http.get(tvProductsUrl).then((products) => ui.showProductsToUsers(products));
+//     document.getElementById('link-sidebar-tv-filter').classList.add('bg-success');
 
-} else if(currentLocation == 'http://localhost:5000/category?filter=accessories'){
+// } else if(currentLocation == 'http://localhost:5000/category?filter=music'){
     
-    http.get(accessoriesProductsUrl).then((products) => ui.showProductsToUsers(products));
-    document.getElementById('link-sidebar-accessories-filter').classList.add('bg-success');
+//     http.get(musicProductsUrl).then((products) => ui.showProductsToUsers(products));
+//     document.getElementById('link-sidebar-music-filter').classList.add('bg-success');
 
-} else {}
+// } else if(currentLocation == 'http://localhost:5000/category?filter=accessories'){
+    
+//     http.get(accessoriesProductsUrl).then((products) => ui.showProductsToUsers(products));
+//     document.getElementById('link-sidebar-accessories-filter').classList.add('bg-success');
+
+// } else {}
