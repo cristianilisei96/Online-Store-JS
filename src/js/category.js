@@ -15,7 +15,8 @@ let categoryParamSearch = window.location.search;
 const searchParam = new URLSearchParams(categoryParamSearch).get('filter');
 const detailsProductUrl = 'https://61363d1a8700c50017ef54c3.mockapi.io/products?category=' + searchParam;
 console.log('DetailsProductUrl is ' + detailsProductUrl);
-console.log('SearchParam is ' + searchParam)
+console.log('SearchParam is ' + searchParam);
+console.log('CategoryParamSearch is ' + categoryParamSearch);
 // http.get(detailsProductUrl).then((product) => ui.showProductDetails(product));
 
 // Get location on app
