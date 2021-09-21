@@ -27,14 +27,3 @@ function getProducts() {
         
     }
 }
-
-// scroll to top script
-const btnToTop = document.getElementById('btnToTop');
-
-$(document).scroll(function () {
-    if (window.scrollY > 150 ) {
-        $(".buttonToTop").css("display", "block");
-    } else {
-        $(".buttonToTop").css("display", "none");
-    }
-});
