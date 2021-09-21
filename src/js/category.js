@@ -4,12 +4,10 @@ import { ui } from './ui.js';
 // Get category product URL
 let categoryParamSearch = window.location.search;
 const searchParam = new URLSearchParams(categoryParamSearch).get('filter');
-const detailsProductUrl = 'https://61363d1a8700c50017ef54c3.mockapi.io/products?category=' + searchParam;
+const categoryFilterURL = 'https://61363d1a8700c50017ef54c3.mockapi.io/products?category=' + searchParam;
 
 // Get location on app
 let currentLocation = window.location;
-
-const categoryFilterURL = 'https://61363d1a8700c50017ef54c3.mockapi.io/products?category=' + searchParam;
 
 if(currentLocation.href.indexOf(searchParam) != -1) {
 
