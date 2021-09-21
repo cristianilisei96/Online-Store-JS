@@ -53,6 +53,11 @@ function submitOnEnterKey(e) {
 function submitForm(e) {
     const result = inputs.map((input) => validate(input)).every((val) => val);
 
+    if(result) {
+        loginPage.classList.add('d-none');
+        appPage.classList.add('d-block');
+    } else {}
+
     e.preventDefault();
 }
 
@@ -75,7 +80,7 @@ loginBtn.addEventListener('click', (e) => {
     var email = emailFieldAdmin.value;
     var password = passwordFieldAdmin.value;
     const result = inputs.map((input) => validate(input)).every((val) => val);
-    
+
     e.preventDefault();
     for(let i = 0; i < objAdmin.length; i++) {
         if( email == objAdmin[i].email && password == objAdmin[i].password ){
