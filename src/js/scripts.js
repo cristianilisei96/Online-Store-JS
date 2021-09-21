@@ -52,11 +52,13 @@ $('a[href*="#"]')
 let searchInput = document.getElementById('searchInput');
 let searchBtn = document.getElementById('searchBtn');
 
-$("#searchInput").on('keyup', function (e) {
+searchInput.addEventListener('keyup', pressEnterBtn);
+
+function pressEnterBtn(e) {
   if (e.key === 'Enter' || e.keyCode === 13) {
-    window.location = 'search?search=' + searchInput.value;
+    searchProducts();
   }
-});
+}
 
 searchBtn.addEventListener('click', searchProducts);
 

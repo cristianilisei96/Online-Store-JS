@@ -10,20 +10,16 @@ let categoryParamSearch = window.location.search;
 const searchParam = new URLSearchParams(categoryParamSearch).get('search');
 const categoryFilterURL = 'https://61363d1a8700c50017ef54c3.mockapi.io/products?search=' + searchParam;
 
-console.log(categoryFilterURL);
-
+// Insert to restult span title, the searched Parameter
 searchParamSpan.innerHTML = searchParam;
 
 // Get location on app
 let currentLocation = window.location;
-console.log(currentLocation);
 
 searchBtn.addEventListener('click', searchProducts);
 
 function searchProducts(e) {
     window.location = 'search?search=' + searchInput.value;
-    // console.log(searchInput.value);
-    console.log(categoryFilterURL);
 }
 
 http.get(categoryFilterURL).then((products) => ui.showSearchResult(products));
