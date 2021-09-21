@@ -21,6 +21,7 @@ console.log('CategoryParamSearch is ' + categoryParamSearch);
 
 // Get location on app
 let currentLocation = window.location;
+console.log('CurrentLocation is ' + currentLocation);
 
 if(currentLocation == 'http://localhost:5000/category?filter=mac'){
     
