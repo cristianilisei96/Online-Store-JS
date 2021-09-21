@@ -6,7 +6,9 @@ const productsAdminURL = 'https://61363d1a8700c50017ef54c3.mockapi.io/products/'
 document.getElementById('add-product').addEventListener('click', addNewProduct);
 document.getElementById('products-container').addEventListener('click', deleteProduct);
 
-http.get(productsAdminURL).then((products) => ui.showProductsToAdmins(products));
+// http.get(productsAdminURL).then((products) => ui.showProductsToAdmins(products));
+
+document.addEventListener('DOMContentLoaded', getProducts);
 
 function getProducts() {
     http.get(productsAdminURL).then((products) => ui.showProductsToAdmins(products));
