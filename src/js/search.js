@@ -11,7 +11,7 @@ const searchParam = new URLSearchParams(categoryParamSearch).get('search');
 const categoryFilterURL = 'https://61363d1a8700c50017ef54c3.mockapi.io/products?search=' + searchParam;
 
 // Insert to restult span title, the searched Parameter
-searchParamSpan.innerHTML = searchParam;
+searchParamSpan.innerHTML = '"' + searchParam + '"';
 
 // Get location on app
 let currentLocation = window.location;
