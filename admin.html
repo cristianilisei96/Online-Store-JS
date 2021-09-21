@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Admin section</title>
+	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./src/css/style.css">
+	<script defer src="./node_modules/@fortawesome/fontawesome-free/js/brands.js"></script>
+	<script defer src="./node_modules/@fortawesome/fontawesome-free/js/solid.js"></script>
+	<script defer src="./node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"></script>
+</head>
+<body>
+<div id="app">
+	<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+		<div class="container">
+		  	<a class="navbar-brand color-default" href="index.html">Ecommerce</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarToggler">
+					<ul class="navbar-nav mx-auto mb-lg-0 w-50">
+						<input type="search" class="input-search rounded-start" value="" id="searchInput">
+							<button id="searchBtn" type="button" class="btn btn-success btn-search rounded-end">
+								<svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg><!-- <i class="fas fa-search"></i> Font Awesome fontawesome.com -->
+							</button>
+					</ul>
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link text-white" href="cart.html">Cart</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link color-default" href="admin.html">Admin</a>
+						</li>
+					</ul>
+				</div>
+		</div>
+	</nav>
+	<div id="content">
+		<div class="add-new-product">
+			<div class="container">
+				<div class="row">
+					<header class="col-md-12 border p-4">
+						<div class="header-admin-content">
+							<h5 class="m-0">Product management</h5>
+							<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addNewProductModal">Add new product</button>
+						</div>
+					</header>
+				</div>
+				<br><br>
+			</div>
+		</div>
+        <div class="container">
+			<div class="table-responsive">
+				<table id="products-container" class="table">
+					<thead>
+						<tr>
+						<th scope="col">Image</th>
+						<th scope="col">Name</th>
+						<th scope="col">Price</th>
+						<th scope="col">Quantity</th>
+						<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody id="tbody-list-products">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<a href="#" id="btnToTop" class="buttonToTop bg-dark text-center">
+		<i class="fa fa-arrow-up" aria-hidden="true"></i>
+	</a>
+	<footer id="footer" class="bg-dark text-white">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 mb-5">
+					<h4><i class="fas fa-headset color-default"></i> Need help ?</h4>
+						<hr>
+							<a href="#"><i class="fas fa-phone-alt"></i> 0731004156</a>
+				</div>
+				<div class="col-md-3 mb-5">
+					<h4><i class="fas fa-hand-holding-usd color-default"></i> Payment</h4>
+						<hr>
+							<div class="icons-payment-methods text-center">
+								<i class="fab fa-cc-paypal fa-4x"></i>
+								<i class="fab fa-cc-mastercard fa-4x"></i>
+								<i class="fab fa-cc-visa fa-4x"></i>
+								<i class="fab fa-cc-apple-pay fa-4x"></i>
+								<i class="fab fa-cc-amex fa-4x"></i>
+								<i class="fab fa-cc-discover fa-4x"></i>
+								<i class="fab fa-cc-amazon-pay fa-4x"></i>
+								<i class="fab fa-cc-jcb fa-4x"></i>
+							</div>
+				</div>
+				<div class="col-md-3 mb-5">
+					<h4><i class="fas fa-map-signs color-default"></i> SiteMap</h4>
+						<hr>
+							<a href="index.html">Home</a>
+							<a href="cart.html">Cart</a>
+							<a href="admin.html">Admin</a>
+				</div>
+				<div class="col-md-3 mb-5">
+					<h4><i class="fas fa-info-circle color-default"></i> Useful information</h4>
+						<hr>
+							<a href="#">Terms and conditions</a>
+							<a href="#">Processing of personal data</a>
+							<a href="#">Cookies usage policy</a>
+				</div>
+			</div>
+			<hr>
+			<div class="copyright text-center">	
+				<p>Made with <i class="fas fa-heart"></i> by Cristian Ilisei</p>
+			</div>
+		</div>
+	</footer>
+	<!-- Modal to add new product -->
+	<div class="modal fade" id="addNewProductModal" tabindex="-1" aria-labelledby="addNewProductModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header bg-success">
+					<h5 class="modal-title" id="addNewProductModalLabel">Add new product</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="form-floating mb-2">
+						<input type="text" id="title" class="form-control" placeholder="product title" id="floatingProductName"/>
+						<label for="floatingProductName">Product Name</label>
+					</div>
+					<div class="form-floating mb-2">
+						<input type="text" id="image" class="form-control" placeholder="product image" id="floatingProductImageURL"/>
+						<label for="floatingProductImageURL">Product Image URL</label>
+					</div>
+					<div class="form-floating mb-2">
+						<input type="text"	id="price" class="form-control" placeholder="product price" id="floatingProductPrice"/>
+						<label for="floatingProductPrice">Product Price</label>
+					</div>
+					<div class="form-floating">
+						<textarea id="description" class="form-control" placeholder="Product description" id="floatingTextarea"></textarea>
+						<label for="floatingTextarea">Product description</label>
+					  </div>
+				</div>
+				<div class="modal-footer text-center">
+					<button class="btn btn-success btn-secondary btn-block" id="add-product" data-bs-dismiss="modal" aria-label="Close">
+						Add Product
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./node_modules/jquery/dist/jquery.slim.min.js"></script>
+<script src="./src/js/admin.js" type="module"></script>
+</body>
+</html>

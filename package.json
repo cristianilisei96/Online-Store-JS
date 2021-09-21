@@ -1,0 +1,18 @@
+{
+	"name": "final_project_fe12",
+	"version": "0.0.1",
+	"description": "Final Project | Front End 12 - Online Commerce Website",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "serve"
+	},
+	"author": "Cristian Ilisei",
+	"license": "ISC",
+	"dependencies": {
+		"@fortawesome/fontawesome-free": "^5.15.4",
+		"bootstrap": "^5.1.1",
+		"jquery": "^3.6.0",
+		"serve": "^12.0.0"
+	}
+}
