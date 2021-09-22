@@ -8,11 +8,16 @@ const detailsProductUrl = 'https://61363d1a8700c50017ef54c3.mockapi.io/products/
 
 http.get(detailsProductUrl).then((product) => ui.showProductDetails(product));
 
+// Get spinner load container
+let loadingSpinner = document.getElementById("loadingSpinner");
+loadingSpinner.removeAttribute("hidden");
+
 let getIndexOfCurrentItemArrayUrl = 'https://61363d1a8700c50017ef54c3.mockapi.io/products';
 fetch(getIndexOfCurrentItemArrayUrl)
     .then((response) => response.json())
     .then((products) => {
-        showElem(products, 1);
+        loadingSpinner.setAttribute("hidden","");
+        showElem(products, 0);
     });
 
 function showElem(products, index) {
