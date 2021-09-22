@@ -48,7 +48,7 @@ function showElem(products, index) {
         prevBtnHTML.addEventListener('click', function() {
             let current = this;
             prevElem(products, index, current);
-            window.location.href = "/details?id=" + (--currentPosition);
+            window.location.href = "details?id=" + --currentPosition;
         });
     } else {
       index = `${index}`;
