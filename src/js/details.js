@@ -42,7 +42,7 @@ function showElem(products, index) {
         nextBtnHTML.addEventListener('click', function() {
             let current = this;
             nextElem(products, index, current);
-            window.location.href = 'details?id=' + ++currentPosition;
+            window.location.href = window.location + '/details?id=' + ++currentPosition;
         });
         
         prevBtnHTML.addEventListener('click', function() {
