@@ -40,8 +40,8 @@ class UI {
                                 <h5 class="card-title">${product.name}</h5>
                                     <p>$${product.price}</p>
                                         <hr>
-                                            <button class="btn btn-success" id="">Add to cart</button>
                             </a>
+                            <button class="btn btn-success addToCartBtn" id="${product.id}">Add to cart</button>
                         </div>
                     </div>
                 </div>
@@ -62,10 +62,10 @@ class UI {
         <div class="col-md-6 mb-4">
             <div class="p-4">
                 <div class="mb-3">
-                    <h5>${product.name}</h5>
+                    <h3>${product.name}</h3>
                 </div>
 
-                <p class="lead">
+                <p class="lead fw-bold">
                     <span class="color-default">$${product.price}</span>
                 </p>    
 

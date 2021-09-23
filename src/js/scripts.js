@@ -65,3 +65,5 @@ searchBtn.addEventListener('click', searchProducts);
 function searchProducts() {
     window.location = 'search?search=' + searchInput.value;
 }
+
+// Script cart
