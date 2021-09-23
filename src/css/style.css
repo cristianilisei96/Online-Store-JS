@@ -47,16 +47,24 @@ a {
     margin-left: -2px;
 }
 
+#cartItemsNumber {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none!important;
+}
+
 .item-sidebar-category svg {
     width: 40px!important;
 }
 
 .item-sidebar-category:hover {
     color: #000!important;
-}
-
-.navbar-toggler:focus {
-    box-shadow: none!important;
 }
 
 #content {
