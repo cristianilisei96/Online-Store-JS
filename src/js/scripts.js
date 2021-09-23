@@ -65,3 +65,36 @@ searchBtn.addEventListener('click', searchProducts);
 function searchProducts() {
     window.location = 'search?search=' + searchInput.value;
 }
+
+// Notifications script
+function notify(nameEvent, type, message) {
+  if(type == "success" && nameEvent == "productAddedToCart") {
+    var prefix = '<i class="fas fa-cart-plus"></i> ';
+  } else if(type == "warning" && nameEvent == "scrollToTop") {
+    var prefix = '<i class="fas fa-arrow-up"></i> ';
+  }  else if(type == "danger") {
+    var prefix = '<i class="ion-close-circled"></i> ';
+  } else if(type == "info") {
+    var prefix = '<i class="ion-information-circled"></i> ';
+  } else if(type == "warning") {
+    var prefix = '<i class="ion-alert-circled"></i> ';
+  } else {
+    var prefix = '';
+  }
+
+  $.notify(
+    {
+      message: prefix + message,
+    },
+  {
+  type: type,
+  newest_on_top: false,
+  allow_dismiss: true,
+  mouse_over: "pause",
+  placement: {
+        from: "top",
+        align: "center"
+      },
+  }
+);
+}

@@ -10,6 +10,11 @@ function getProducts() {
 	http.get(productsURL).then((products) => {ui.showProductsToUsers(products)});
 }
 
+//test notify js
+document.getElementById('btnToTop').addEventListener('click', () => {
+	notify('scrollToTop','warning', 'You pressed btn to top');
+})
+
 // Script cart
 // const addToCartBtns = document.getElementsByClassName('addToCartBtn');
 // console.log(addToCartBtns);
@@ -28,7 +33,8 @@ function addToCartFunction(e) {
 
   // Condition to show message 'The product has been added to cart'
   if(e.target.classList.contains('addToCartBtn')) {
-    alert('The product has been added to cart');
+    // alert('The product has been added to cart');
+	notify('productAddedToCart','success', 'Product added to cart');
 
     let cart = [];
 
