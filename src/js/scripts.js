@@ -66,19 +66,31 @@ function searchProducts() {
     window.location = 'search?search=' + searchInput.value;
 }
 
+// Script get products from localstorage and add to icon cart navlink
+function changeNumberOfProductsInCart(){
+	let cartItemsNumber = document.getElementById('cartItemsNumber');
+	const cartLocalStorage = localStorage.getItem('cart');
+	
+	if(cartLocalStorage) {
+		let test = localStorage.getItem('cart');
+		let jsonTest = JSON.parse(test) ;
+		cartItemsNumber.textContent = jsonTest.length;
+	} else {
+		cartItemsNumber.textContent = 0;
+	}
+
+}
+
+changeNumberOfProductsInCart();
+
 // Notifications script
 function notify(nameEvent, type, message) {
   if(type == "success" && nameEvent == "productAddedToCart") {
     var prefix = '<i class="fas fa-cart-plus"></i> ';
-  } else if(type == "warning" && nameEvent == "scrollToTop") {
-    var prefix = '<i class="fas fa-arrow-up"></i> ';
-  }  else if(type == "danger") {
-    var prefix = '<i class="ion-close-circled"></i> ';
-  } else if(type == "info") {
-    var prefix = '<i class="ion-information-circled"></i> ';
-  } else if(type == "warning") {
-    var prefix = '<i class="ion-alert-circled"></i> ';
-  } else {
+  } else if(type == 'info' && nameEvent == "infoAlertProductsInCart") {
+    var prefix = '<i class="fas fa-info-circle"></i> ';
+  } 
+  else {
     var prefix = '';
   }
 

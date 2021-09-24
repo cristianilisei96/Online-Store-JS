@@ -92,6 +92,11 @@ video {
     box-shadow: none;
 }
 
+.img-sm {
+    width: 80px;
+    height: 80px
+}
+
 #loginPage {
     width: 100%;
     height: 100vh;
