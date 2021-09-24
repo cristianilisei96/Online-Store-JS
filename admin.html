@@ -99,7 +99,7 @@
 						<th scope="col">Name</th>
 						<th scope="col">Price</th>
 						<th scope="col">Quantity</th>
-						<th scope="col">Action</th>
+						<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody id="tbody-list-products">
@@ -150,7 +150,7 @@
 							<a href="cart.html">
 								<i class="fas fa-shopping-cart color-default"></i> Cart
 							</a>
-							<a href="admin.html">
+							<a href="admin.html" class="color-default">
 								<i class="fas fa-user-lock color-default"></i> Admin
 							</a>
 				</div>
@@ -184,15 +184,53 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-floating mb-2">
-						<input type="text" id="title" class="form-control" placeholder="product title" id="floatingProductName"/>
+						<input type="text" id="title" class="form-control" placeholder="product title"/>
+						<label for="title">Product Name</label>
+					</div>
+					<div class="form-floating mb-2">
+						<input type="text" id="image" class="form-control" placeholder="product image"/>
+						<label for="image">Product Image URL</label>
+					</div>
+					<div class="form-floating mb-2">
+						<input type="text"	id="price" class="form-control" placeholder="product price"/>
+						<label for="price">Product Price</label>
+					</div>
+					<div class="form-floating mb-2">
+						<input type="text"	id="quantity" class="form-control" placeholder="product quantity"/>
+						<label for="quantity">Product quantity</label>
+					</div>
+					<div class="form-floating">
+						<textarea id="description" class="form-control" placeholder="Product description"></textarea>
+						<label for="description">Product description</label>
+					  </div>
+				</div>
+				<div class="modal-footer text-center">
+					<button class="btn btn-success btn-secondary btn-block" id="add-product" data-bs-dismiss="modal" aria-label="Close">
+						Add Product
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal to add new product -->
+	<div class="modal fade" id="updateProductModal" tabindex="-1" aria-labelledby="updateProductModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header bg-success">
+					<h5 class="modal-title" id="updateProductModalLabel">Add new product</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="form-floating mb-2">
+						<input type="text" id="newTitle" class="form-control" placeholder="product title" id="floatingProductName"/>
 						<label for="floatingProductName">Product Name</label>
 					</div>
 					<div class="form-floating mb-2">
-						<input type="text" id="image" class="form-control" placeholder="product image" id="floatingProductImageURL"/>
+						<input type="text" id="newImage" class="form-control" placeholder="product image" id="floatingProductImageURL"/>
 						<label for="floatingProductImageURL">Product Image URL</label>
 					</div>
 					<div class="form-floating mb-2">
-						<input type="text"	id="price" class="form-control" placeholder="product price" id="floatingProductPrice"/>
+						<input type="text"	id="newPrice" class="form-control" placeholder="product price" id="floatingProductPrice"/>
 						<label for="floatingProductPrice">Product Price</label>
 					</div>
 					<div class="form-floating">
@@ -201,7 +239,7 @@
 					  </div>
 				</div>
 				<div class="modal-footer text-center">
-					<button class="btn btn-success btn-secondary btn-block" id="add-product" data-bs-dismiss="modal" aria-label="Close">
+					<button class="btn btn-success btn-secondary btn-block" id="updateProduct" data-bs-dismiss="modal" aria-label="Close">
 						Add Product
 					</button>
 				</div>

@@ -69,12 +69,11 @@ function searchProducts() {
 // Script get products from localstorage and add to icon cart navlink
 function changeNumberOfProductsInCart(){
 	let cartItemsNumber = document.getElementById('cartItemsNumber');
-	const cartLocalStorage = localStorage.getItem('cart');
+	let cartLocalStorage = localStorage.getItem('cart');
 	
 	if(cartLocalStorage) {
-		let test = localStorage.getItem('cart');
-		let jsonTest = JSON.parse(test) ;
-		cartItemsNumber.textContent = jsonTest.length;
+		let parseCartLocalStorage = JSON.parse(cartLocalStorage) ;
+		cartItemsNumber.textContent = parseCartLocalStorage.length;
 	} else {
 		cartItemsNumber.textContent = 0;
 	}
@@ -82,6 +81,46 @@ function changeNumberOfProductsInCart(){
 }
 
 changeNumberOfProductsInCart();
+
+// Script add product to cart
+function addToCartFunction(e) {
+  let idProduct = e.target.id;
+
+  if(e.target.classList.contains('addToCartBtn')) {
+    notify('productAddedToCart','success', 'Product added to cart');
+
+    let urlFetchProductToCart = 'https://61363d1a8700c50017ef54c3.mockapi.io/products/' + idProduct;
+  
+    fetch(urlFetchProductToCart)
+      .then((response) => response.json())
+      .then(data => {
+        if(localStorage.getItem('cart'))
+        {  
+          var array = JSON.parse(localStorage.getItem('cart'));
+        } else {
+          var array = []; 
+        }
+
+        let exists = false;
+        for(let i=0;i<array.length;++i) {
+          if(array[i].id === data.id)
+          { 
+            exists= true; 
+            array[i].quantity += 1;
+          }
+        }
+
+        if(!exists)	
+        { 
+          array.push(data)
+        };
+
+        localStorage.setItem('cart', JSON.stringify(array));
+        localStorage.setItem('test', 'ceva');
+      changeNumberOfProductsInCart();
+    });
+  }
+}
 
 // Remove item from localStorage
 function removeItemFromLocalStorage(){
@@ -116,6 +155,15 @@ function notify(nameEvent, type, message) {
 );
 }
 
+function removeLocalStorage(){
+  localStorage.removeItem('test');
+}
+
 function goToHome(){
   window.location.href = "index.html";
+}
+
+function clearCartFunction(){
+  localStorage.removeItem('cart');
+  window.location.reload();
 }

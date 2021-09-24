@@ -74,7 +74,7 @@ class UI {
                 <p>${product.description}.</p>
 
                 <form class="d-flex justify-content-left">
-                    <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+                    <input type="number" value="1" class="form-control" style="width: 100px">
                       <button class="btn btn-success btn-md my-0 p waves-effect waves-light" type="submit">Add to cart
                         <i class="fas fa-shopping-cart ml-1"></i>
                       </button>
@@ -87,8 +87,7 @@ class UI {
         let output = '';
         products.forEach(product => {
             output += 
-                `
-                <tr>
+                `<tr>
                     <th scope="row">
                         <img src="${product.image}" class="" alt="${product.name}" width="100">
                     </th>
@@ -102,10 +101,16 @@ class UI {
                         ${product.quantity}
                     </td>
                     <td>
-                        <button class="btn btn-danger delete" id="${product.id}">Delete</button>
+                        <div class="d-inline">
+                            <button type="button" class="btn btn-warning update" id="${product.id}">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger delete" id="${product.id}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
                     </td>
-                </tr>
-                `;
+                </tr>`;
             this.adminProductList.innerHTML = output;
         });
     }

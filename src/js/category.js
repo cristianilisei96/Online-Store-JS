@@ -29,4 +29,7 @@ if(currentLocation.href.indexOf(searchParam) != -1) {
         document.getElementById('link-sidebar-accessories-filter').classList.add('bg-success');
     }
     
-} else {}
+}
+
+// Script cart - add product to localstorage
+document.getElementById('products-items-list').addEventListener('click', addToCartFunction);

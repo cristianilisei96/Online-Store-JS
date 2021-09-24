@@ -71,8 +71,8 @@ var objAdmin = [
         password: "Admin1"
     }, 
     {
-        email: "admin@gmail.com",
-        password: "Admin2"
+        email: "admin@admin.com",
+        password: "admin"
     }
 ];
 
@@ -103,24 +103,46 @@ function getProducts() {
 }
 
 document.getElementById('add-product').addEventListener('click', addNewProduct);
+// document.getElementById('products-container').addEventListener('click', updateProduct());
 document.getElementById('products-container').addEventListener('click', deleteProduct);
 
 function addNewProduct() {
     var nameValue = document.getElementById('title').value;
     const imageValue = document.getElementById('image').value;
     const priceValue = Number(document.getElementById('price').value);
+    const quantityValue = Number(document.getElementById('quantity').value);
+    const descriptionValue = document.getElementById('description').value;
     
     const product = {
         name: nameValue,
         image: imageValue,
         price: priceValue,
+        quantity: quantityValue,
+        description: descriptionValue
     };
 
     http.post(productsAdminURL, product).then(() => getProducts());                    
 }
 
+// function updateProduct(event) {
+//      if(event.target.classList.contains('update')){
+//          const id = e.target.id;
+//          var nameValue = document.getElementById('title').value;
+//           const imageValue = document.getElementById('image').value;
+//          const priceValue = Number(document.getElementById('price').value);
+//          const product = {
+//              name: nameValue,
+//              image: imageValue,
+//              price: priceValue,
+//              };
+//         http
+//             .put(`${productsAdminURL}/${id}`, product)
+//             .then(() => getProducts())
+//             .catch('Error on delete');
+    // }
+// }
+
 function deleteProduct(e) {
-    // console.log(e.target);
     if(e.target.classList.contains('delete')){
         const id = e.target.id;
         http
