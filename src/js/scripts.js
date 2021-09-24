@@ -83,6 +83,11 @@ function changeNumberOfProductsInCart(){
 
 changeNumberOfProductsInCart();
 
+// Remove item from localStorage
+function removeItemFromLocalStorage(){
+  
+}
+
 // Notifications script
 function notify(nameEvent, type, message) {
   if(type == "success" && nameEvent == "productAddedToCart") {
@@ -109,4 +114,8 @@ function notify(nameEvent, type, message) {
       },
   }
 );
+}
+
+function goToHome(){
+  window.location.href = "index.html";
 }

@@ -38,9 +38,14 @@ function addToCartFunction(e) {
 				let exists = false;
 				for(let i=0;i<array.length;++i)
 				if(array[i].id === data.id)
-				{ exists= true; array[i].quantity += 1;}
+				{ 
+					exists= true; array[i].quantity += 1;
+				}
 
-				if(!exists) array.push(data)
+				if(!exists)	
+				{ 
+					array.push(data)
+				};
 
 				localStorage.setItem('cart', JSON.stringify(array));
 

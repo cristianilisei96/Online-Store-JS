@@ -92,9 +92,7 @@ loginBtn.addEventListener('click', (e) => {
 
 const homepageBtn = document.getElementById('homepageBtn');
 
-homepageBtn.addEventListener('click', () => {
-    window.location.href = "index.html";
-});
+homepageBtn.addEventListener('click', goToHome);
 
 // http.get(productsAdminURL).then((products) => ui.showProductsToAdmins(products));
 
