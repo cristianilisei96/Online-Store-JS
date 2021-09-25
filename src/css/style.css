@@ -134,7 +134,7 @@ footer p {
     margin-bottom: 0;
 }
 
-footer .copyright svg {
+footer .copyright svg.fa-heart, .modal svg.fa-heart {
     color: #fb1d25;
 }
 

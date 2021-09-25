@@ -169,3 +169,22 @@ function clearCartFunction(){
   localStorage.removeItem('cart');
   window.location.reload();
 }
+
+window.onscroll = function() {
+  if (window.scrollY > '150px'){
+    console.log('ai trecut de 150');
+  }
+}
+
+// $(document).scroll(function () {
+//   if (window.scrollY > document.getElementById('footer') ) {
+//       console.log('ai trecut de 150');
+//   } else {
+//     console.log('ai revenit sub 150');
+//   }
+// });
+
+// Add modals to html pages
+$(function(){
+  $("#modals").load("modals.html");
+})
