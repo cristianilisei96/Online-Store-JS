@@ -89,7 +89,7 @@
 							<div class="card-body">
 								<dl class="d-flex justify-content-between">
 									<dt>Total price:</dt>
-									<dd class="text-end ml-3">$0</dd>
+									<dd id="totalPriceValue" class="text-end ml-3">$0</dd>
 								</dl>
 								<dl class="d-flex justify-content-between">
 									<dt>Discount:</dt>
@@ -97,10 +97,12 @@
 								</dl>
 								<dl class="d-flex justify-content-between">
 									<dt>Total:</dt>
-									<dd class="text-end text-dark b ml-3"><strong>$0</strong></dd>
+									<dd class="text-end text-dark b ml-3">
+										<strong id="totalValue">$0</strong>
+									</dd>
 								</dl>
 								<hr> 
-								<button id="makePurchaseBtn" type="button" class="btn btn-success mb-2"> Make Purchase </button> 
+								<button id="makePurchaseBtn" type="button" class="btn btn-success mb-2" disabled>Make Purchase </button> 
 								<button id="continueShoppingBtn" type="button" class="btn btn-warning mb-2">Continue Shopping</button>
 								<button id="clearCartBtn" type="button" class="btn btn-danger mb-2">Clear cart</button>
 							</div>

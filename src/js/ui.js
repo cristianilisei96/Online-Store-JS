@@ -60,21 +60,16 @@ class UI {
                 <div class="mb-3">
                     <h3>${product.name}</h3>
                 </div>
-
                 <p class="lead fw-bold">
                     <span class="color-default">$${product.price}</span>
                 </p>    
-
-                <p class="lead fw-bold">Description</p>
-
+                <p class="lead fw-bold">
+                    Description
+                </p>
                 <p>${product.description}.</p>
-
-                <form class="d-flex justify-content-left">
-                    <input type="number" value="1" class="form-control" style="width: 100px">
-                      <button class="btn btn-success btn-md my-0 p waves-effect waves-light" type="submit">Add to cart
-                        <i class="fas fa-shopping-cart ml-1"></i>
-                      </button>
-                </form>
+                <button class="btn btn-success" type="submit">Add to cart
+                    <i class="fas fa-shopping-cart ml-1"></i>
+                </button>
             </div>
         </div>`;
     }
