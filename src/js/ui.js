@@ -57,8 +57,8 @@ class UI {
         `<div class="col-md-6 mb-4 text-center">
             <img src="${product.image}" class="img-fluid" alt="${product.name}">
         </div>
-        <div class="col-md-6 mb-4">
-            <div class="p-4">
+        <div class="col-md-6">
+            <div class="p-1">
                 <div class="mb-3">
                     <h3>${product.name}</h3>
                 </div>
@@ -69,9 +69,11 @@ class UI {
                     Description
                 </p>
                 <p>${product.description}.</p>
-                <button class="btn btn-success addToCartBtn" id="${product.id}">
-                    <i class="fas fa-cart-plus"></i> Add to cart
-                </button>
+                <div class="text-xs-center text-sm-center text-md-start text-lg-start text-xl-start">
+                    <button class="btn btn-success addToCartBtn" id="${product.id}">
+                        <i class="fas fa-cart-plus"></i> Add to cart
+                    </button>
+                </div>
             </div>
         </div>`;
         // Script cart - add product to localstorage
