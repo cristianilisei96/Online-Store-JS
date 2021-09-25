@@ -11,24 +11,13 @@
     background-color: #198754;
 }
 
+:focus{
+    outline: none!important;
+}
+
 a {
     color: #000;
     text-decoration: none;
-}
-
-a:focus-visible{
-    outline-offset: 0px;
-    outline: none!important;
-    -webkit-appearance: none!important;
-}
-
-:focus-visible {
-    outline: none!important;
-}
-
-a:-webkit-any-link:focus-visible {
-    outline: none!important;
-    outline-offset: 0px!important;
 }
 
 .color-default, a:hover, footer #icons-payment-methods svg, .buttonToTop:hover a {
@@ -144,6 +133,11 @@ footer a {
     margin-bottom: 5px;
 }
 
+footer a svg, footer p svg {
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
 footer p {
     font-weight: bold;
     margin-bottom: 0;
@@ -151,6 +145,10 @@ footer p {
 
 footer .copyright svg.fa-heart, .modal svg.fa-heart {
     color: #fb1d25;
+}
+
+footer .copyright svg {
+    margin: 0 auto!important;
 }
 
 .buttonToTop {
