@@ -17,11 +17,17 @@ a {
 }
 
 a:focus-visible{
-    outline: 0!important;
-    appearance: none;
-    -webkit-appearance: none;
-    box-shadow: none!important;
-    outline-offset: 0!important;
+    outline-offset: 0px;
+    outline: none!important;
+    -webkit-appearance: none!important;
+}
+
+:focus-visible {
+    outline: none!important;
+}
+
+a:-webkit-any-link:focus-visible {
+    outline: none!important;
 }
 
 .color-default, a:hover, footer #icons-payment-methods svg, .buttonToTop:hover a {
