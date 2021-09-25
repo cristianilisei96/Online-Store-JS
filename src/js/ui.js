@@ -52,8 +52,8 @@ class UI {
 
     showProductDetails(product){
         this.containerDetailsProduct.innerHTML = 
-        `<div class="col-md-6 mb-4">
-            <img src="${product.image}" class="img-fluid" alt="">
+        `<div class="col-md-6 mb-4 text-center">
+            <img src="${product.image}" class="img-fluid" alt="${product.name}">
         </div>
         <div class="col-md-6 mb-4">
             <div class="p-4">
