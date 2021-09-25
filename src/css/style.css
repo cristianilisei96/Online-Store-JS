@@ -28,6 +28,7 @@ a:focus-visible{
 
 a:-webkit-any-link:focus-visible {
     outline: none!important;
+    outline-offset: 0px!important;
 }
 
 .color-default, a:hover, footer #icons-payment-methods svg, .buttonToTop:hover a {
