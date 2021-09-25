@@ -7,9 +7,8 @@ let cardShoppingCart = document.getElementById('cardShoppingCart');
 var cartContentStored = localStorage.getItem('cart');
 var productsOnCartStored = JSON.parse(cartContentStored);
 
-    if(cartContentStored){
-        notify('infoAlertProductsInCart', 'info', 'You have products in the cart');
-        
+function checkCartLocalStorage(){
+    if(cartContentStored){        
         let output = '';
         productsOnCartStored.forEach(product => {
             output += 
@@ -40,24 +39,25 @@ var productsOnCartStored = JSON.parse(cartContentStored);
                 </tr>`;
             tbodyProductsInCart.innerHTML = output;
         });
-
     } else {
-        notify('infoAlertProductsInCart', 'info', 'You haven\'t items in your shopping cart');
         let output = '';
             output += 
                 `<h4 class="m-0">I did not find any product in your cart</h4>`;
             cardShoppingCart.innerHTML = output;
     }
+}
+
+checkCartLocalStorage();
 
 tbodyProductsInCart.addEventListener('click', removeLocallyStoredProduct);
+
 function removeLocallyStoredProduct(e) {
     const removeItemBtn = e.target.classList.contains('removeProduct'); 
     const removeItemIcon = e.target.parentElement;
-    // console.log(removeItemIcon);
     
     if(removeItemBtn) {
         const idOfItemRemoved = e.target.value;
-        // console.log(idOfItemRemoved);
+        
         if(localStorage.getItem('cart'))
         {  
           var array = JSON.parse(localStorage.getItem('cart'));
@@ -79,9 +79,8 @@ function removeLocallyStoredProduct(e) {
         localStorage.setItem('cart', JSON.stringify(array));
     } else if(removeItemIcon) {
         
-    } else {
-        console.log();
-    }
+    } else {}
+    window.location.reload();
 }
 
 const makePurchaseBtn = document.getElementById('makePurchaseBtn');

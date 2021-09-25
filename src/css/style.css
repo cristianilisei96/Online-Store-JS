@@ -16,7 +16,7 @@ a {
     text-decoration: none;
 }
 
-.color-default, a:hover, footer .icons-payment-methods svg, .buttonToTop:hover a {
+.color-default, a:hover, footer #icons-payment-methods svg, .buttonToTop:hover a {
     color: #198754!important;
 }
 

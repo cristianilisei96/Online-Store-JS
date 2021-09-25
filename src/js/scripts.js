@@ -10,7 +10,7 @@ $(document).scroll(function () {
     }
 });
 
-// function back to top
+// Function back to top
 // Select all links with hashes
 $('a[href*="#"]')
   // Remove links that don't actually link to anything
@@ -48,19 +48,47 @@ $('a[href*="#"]')
     }
   });
 
+// Notifications script
+function notify(nameEvent, type, message) {
+  if(type == "success" && nameEvent == "productAddedToCart") {
+    var prefix = '<i class="fas fa-cart-plus"></i> ';
+  } else if(type == 'success' && nameEvent == 'addProductToJSON') {
+    var prefix = '<i class="fas fa-cart-plus"></i> '; 
+  }else if(type == 'danger' && nameEvent == "deleteProductFromJSON") {
+    var prefix = '<i class="fas fa-info-circle"></i> ';
+  } 
+  else {
+    var prefix = '';
+  }
+
+  $.notify(
+    {
+      message: prefix + message,
+    },
+  {
+  type: type,
+  newest_on_top: false,
+  allow_dismiss: true,
+  mouse_over: "pause",
+  placement: {
+        from: "top",
+        align: "center"
+      },
+  });
+}
+
 // Script to redirect after type search bar and submit
 let searchInput = document.getElementById('searchInput');
 let searchBtn = document.getElementById('searchBtn');
 
 searchInput.addEventListener('keyup', pressEnterBtn);
+searchBtn.addEventListener('click', searchProducts);
 
 function pressEnterBtn(e) {
   if (e.key === 'Enter' || e.keyCode === 13) {
     searchProducts();
   }
 }
-
-searchBtn.addEventListener('click', searchProducts);
 
 function searchProducts() {
     window.location = 'search?search=' + searchInput.value;
@@ -116,7 +144,9 @@ function addToCartFunction(e) {
         };
 
         localStorage.setItem('cart', JSON.stringify(array));
+
         localStorage.setItem('test', 'ceva');
+
       changeNumberOfProductsInCart();
     });
   }
@@ -125,34 +155,6 @@ function addToCartFunction(e) {
 // Remove item from localStorage
 function removeItemFromLocalStorage(){
   
-}
-
-// Notifications script
-function notify(nameEvent, type, message) {
-  if(type == "success" && nameEvent == "productAddedToCart") {
-    var prefix = '<i class="fas fa-cart-plus"></i> ';
-  } else if(type == 'info' && nameEvent == "infoAlertProductsInCart") {
-    var prefix = '<i class="fas fa-info-circle"></i> ';
-  } 
-  else {
-    var prefix = '';
-  }
-
-  $.notify(
-    {
-      message: prefix + message,
-    },
-  {
-  type: type,
-  newest_on_top: false,
-  allow_dismiss: true,
-  mouse_over: "pause",
-  placement: {
-        from: "top",
-        align: "center"
-      },
-  }
-);
 }
 
 function removeLocalStorage(){

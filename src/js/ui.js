@@ -50,10 +50,6 @@ class UI {
         });
     }
 
-    showCartToUser(products){
-
-    }
-
     showProductDetails(product){
         this.containerDetailsProduct.innerHTML = 
         `<div class="col-md-6 mb-4">
@@ -87,7 +83,7 @@ class UI {
         let output = '';
         products.forEach(product => {
             output += 
-                `<tr>
+                `<tr class="align-middle">
                     <th scope="row">
                         <img src="${product.image}" class="" alt="${product.name}" width="100">
                     </th>
@@ -98,17 +94,15 @@ class UI {
                         ${product.price}
                     </td>
                     <td>
-                        ${product.quantity}
+                        ${product.stock}
                     </td>
-                    <td>
-                        <div class="d-inline">
-                            <button type="button" class="btn btn-warning update" id="${product.id}">
-                                <i class="fas fa-pencil-alt"></i>
-                            </button>
-                            <button type="button" class="btn btn-danger delete" id="${product.id}">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </div>
+                    <td id="actionsBtns">
+                        <button type="button" class="btn btn-warning update" id="${product.id}">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger delete" id="${product.id}">
+                            <i class="fas fa-trash"></i>
+                        </button>
                     </td>
                 </tr>`;
             this.adminProductList.innerHTML = output;

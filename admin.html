@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Admin</title>
+	<link href="./src/css/animate.css" rel="stylesheet">
 	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./src/css/style.css">
 	<script defer src="./node_modules/@fortawesome/fontawesome-free/js/brands.js"></script>
@@ -80,14 +81,25 @@
 		<div class="add-new-product">
 			<div class="container">
 				<div class="row">
-					<header class="col-md-12 border p-4">
-						<div id="header-admin-content" class="d-flex align-items-center justify-content-between">
-							<h5 class="m-0">Product management</h5>
-							<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addNewProductModal">Add new product</button>
+					<div class="col-md-12">
+						<div class="card p-4">
+							<div id="header-admin-content" class="d-flex align-items-center justify-content-between">
+								<h5 class="m-0">Product management</h5>
+								<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addNewProductModal">Add new product</button>
+							</div>
 						</div>
-					</header>
+					</div>
 				</div>
 				<br><br>
+			</div>
+		</div>
+		<div id="updateProduct">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 offset-md-3">
+						test
+					</div>
+				</div>
 			</div>
 		</div>
         <div class="container">
@@ -98,7 +110,7 @@
 						<th scope="col">Image</th>
 						<th scope="col">Name</th>
 						<th scope="col">Price</th>
-						<th scope="col">Quantity</th>
+						<th scope="col">Stock</th>
 						<th scope="col"></th>
 						</tr>
 					</thead>
@@ -114,7 +126,7 @@
 	<footer id="footer" class="bg-dark text-white">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 mb-5">
+				<div class="col-md-3 mb-3">
 					<h4><i class="fas fa-headset color-default"></i> Need help ?</h4>
 						<hr>
 							<a href="#">
@@ -127,10 +139,12 @@
 								<i class="fas fa-phone-alt color-default"></i> 0752420138
 							</a>
 				</div>
-				<div class="col-md-3 mb-5">
-					<h4><i class="fas fa-hand-holding-usd color-default"></i> Payment</h4>
+				<div class="col-md-3 mb-3">
+					<h4>
+						<i class="fas fa-hand-holding-usd color-default"></i> Payment
+					</h4>
 						<hr>
-							<div class="icons-payment-methods text-center">
+							<div id="icons-payment-methods" class="text-xs-center text-sm-start text-md-center text-lg-center text-xl-center">
 								<i class="fab fa-cc-paypal fa-4x"></i>
 								<i class="fab fa-cc-mastercard fa-4x"></i>
 								<i class="fab fa-cc-visa fa-4x"></i>
@@ -141,7 +155,7 @@
 								<i class="fab fa-cc-jcb fa-4x"></i>
 							</div>
 				</div>
-				<div class="col-md-3 mb-5">
+				<div class="col-md-3 mb-3">
 					<h4><i class="fas fa-map-signs color-default"></i> SiteMap</h4>
 						<hr>
 							<a href="index.html">
@@ -154,7 +168,7 @@
 								<i class="fas fa-user-lock color-default"></i> Admin
 							</a>
 				</div>
-				<div class="col-md-3 mb-5">
+				<div class="col-md-3 mb-3">
 					<h4><i class="fas fa-info-circle color-default"></i> Useful information</h4>
 						<hr>
 							<a href="#">
@@ -196,8 +210,8 @@
 						<label for="price">Product Price</label>
 					</div>
 					<div class="form-floating mb-2">
-						<input type="text"	id="quantity" class="form-control" placeholder="product quantity"/>
-						<label for="quantity">Product quantity</label>
+						<input type="text"	id="stock" class="form-control" placeholder="product stock"/>
+						<label for="stock">Product stock</label>
 					</div>
 					<div class="form-floating">
 						<textarea id="description" class="form-control" placeholder="Product description"></textarea>
@@ -247,10 +261,9 @@
 		</div>
 	</div>
 </div>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./src/js/bootstrap-notify.min.js" type="text/javascript"></script>
 <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="./node_modules/jquery/dist/jquery.js"></script>
 <script src="./src/js/admin.js" type="module"></script>
 <script src="./src/js/scripts.js"></script>
 </body>

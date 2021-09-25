@@ -94,8 +94,6 @@ const homepageBtn = document.getElementById('homepageBtn');
 
 homepageBtn.addEventListener('click', goToHome);
 
-// http.get(productsAdminURL).then((products) => ui.showProductsToAdmins(products));
-
 document.addEventListener('DOMContentLoaded', getProducts);
 
 function getProducts() {
@@ -103,51 +101,70 @@ function getProducts() {
 }
 
 document.getElementById('add-product').addEventListener('click', addNewProduct);
-// document.getElementById('products-container').addEventListener('click', updateProduct());
+document.getElementById('products-container').addEventListener('click', updateProduct);
 document.getElementById('products-container').addEventListener('click', deleteProduct);
+document.getElementById('description').addEventListener('keypress', checkEnterHasBeenPressed);
+
+function checkEnterHasBeenPressed(e){
+    if(e.keyCode == 13 || e.key === 'Enter'){
+        $('#addNewProductModal').modal('hide');  
+        addNewProduct();
+    }
+}
 
 function addNewProduct() {
-    var nameValue = document.getElementById('title').value;
+    const nameValue = document.getElementById('title').value;
     const imageValue = document.getElementById('image').value;
     const priceValue = Number(document.getElementById('price').value);
-    const quantityValue = Number(document.getElementById('quantity').value);
+    const stockValue = Number(document.getElementById('stock').value);
     const descriptionValue = document.getElementById('description').value;
     
     const product = {
         name: nameValue,
         image: imageValue,
         price: priceValue,
-        quantity: quantityValue,
+        stock: stockValue,
         description: descriptionValue
     };
 
-    http.post(productsAdminURL, product).then(() => getProducts());                    
+    http.post(productsAdminURL, product).then(() => getProducts());   
+    
+    document.getElementById('title').value = ''; 
+    document.getElementById('image').value = ''; 
+    document.getElementById('price').value = ''; 
+    document.getElementById('stock').value = ''; 
+    document.getElementById('description').value = ''; 
+    notify('addProductToJSON', 'success', 'The product has been successfully added to the database!');
 }
 
-// function updateProduct(event) {
-//      if(event.target.classList.contains('update')){
-//          const id = e.target.id;
-//          var nameValue = document.getElementById('title').value;
-//           const imageValue = document.getElementById('image').value;
-//          const priceValue = Number(document.getElementById('price').value);
-//          const product = {
-//              name: nameValue,
-//              image: imageValue,
-//              price: priceValue,
-//              };
-//         http
-//             .put(`${productsAdminURL}/${id}`, product)
-//             .then(() => getProducts())
-//             .catch('Error on delete');
-    // }
-// }
+function updateProduct(e) {
+    console.log(e.target);
+    if(e.target.tagName === 'svg'){
+        console.log('this is svg tag');
+    }
+    if(e.target.tagName === 'path'){
+        console.log('this is svg path');
+    }
+    if(e.target.tagName === 'button'){
+        console.log('this is button tag');
+    }
 
-function deleteProduct(e) {
+    // if(e.target.parentElement.parentElement.classList.contains('update')){
+    //     console.log('icon btn update and id is: ');
+    // }
+    // if(e.target.classList.contains('update')){
+    //     const id = e.target.id;
+    //     console.log('this is update btn and id is :' + id);
+    // }
+}
+
+function deleteProduct(e) {   
     if(e.target.classList.contains('delete')){
         const id = e.target.id;
         http
             .delete(`${productsAdminURL}/${id}`)
             .then(() => getProducts())
+            .then(() => notify('deleteProductFromJSON', 'danger', 'The product was succesfully deleted!'))
             .catch('Error on delete');
     }
 }
