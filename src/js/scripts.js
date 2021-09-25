@@ -113,7 +113,7 @@ changeNumberOfProductsInCart();
 // Script add product to cart
 function addToCartFunction(e) {
   let idProduct = e.target.id;
-
+  console.log(idProduct);
   if(e.target.classList.contains('addToCartBtn')) {
     notify('productAddedToCart','success', 'Product added to cart');
 

@@ -41,7 +41,9 @@ class UI {
                                     <p>$${product.price}</p>
                                         <hr>
                             </a>
-                            <button class="btn btn-success addToCartBtn" id="${product.id}">Add to cart</button>
+                            <button class="btn btn-success addToCartBtn" id="${product.id}">
+                                <i class="fas fa-cart-plus"></i> Add to cart
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -67,11 +69,13 @@ class UI {
                     Description
                 </p>
                 <p>${product.description}.</p>
-                <button class="btn btn-success" type="submit">Add to cart
-                    <i class="fas fa-shopping-cart ml-1"></i>
+                <button class="btn btn-success addToCartBtn" id="${product.id}">
+                    <i class="fas fa-cart-plus"></i> Add to cart
                 </button>
             </div>
         </div>`;
+        // Script cart - add product to localstorage
+        document.getElementById(`${product.id}`).addEventListener('click', addToCartFunction);
     }
 
     showProductsToAdmins(products){
