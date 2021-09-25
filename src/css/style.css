@@ -18,6 +18,8 @@ a {
 
 a:focus-visible{
     outline: none!important;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 .color-default, a:hover, footer #icons-payment-methods svg, .buttonToTop:hover a {
