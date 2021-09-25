@@ -17,7 +17,7 @@ a {
 }
 
 a:focus-visible{
-    outline: none;
+    outline: none!important;
 }
 
 .color-default, a:hover, footer #icons-payment-methods svg, .buttonToTop:hover a {
