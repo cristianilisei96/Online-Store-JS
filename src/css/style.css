@@ -16,6 +16,10 @@ a {
     text-decoration: none;
 }
 
+a:focus-visible{
+    outline: none;
+}
+
 .color-default, a:hover, footer #icons-payment-methods svg, .buttonToTop:hover a {
     color: #198754!important;
 }
