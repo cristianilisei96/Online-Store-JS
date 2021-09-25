@@ -28,7 +28,7 @@ function checkCartLocalStorage(){
                         </a>
                     </td>
                     <td id=""> 
-                        <div class="input-group w-50">
+                        <div class="input-group">
                             <span class="input-group-btn">
                                 <button value="${product.id}" type="button" class="btn btn-success qtMinusOne">
                                     <i class="fas fa-minus"></i>

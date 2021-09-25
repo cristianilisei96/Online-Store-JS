@@ -145,7 +145,7 @@ function addToCartFunction(e) {
 
         localStorage.setItem('cart', JSON.stringify(array));
 
-        localStorage.setItem('test', 'ceva');
+        // localStorage.setItem('test', 'ceva');
 
       changeNumberOfProductsInCart();
     });

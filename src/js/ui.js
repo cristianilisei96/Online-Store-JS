@@ -14,17 +14,19 @@ class UI {
                     <div class="card mb-3">
                         <div class="card-body text-center">
                             <a href="details?id=${product.id}" id="${product.id}" class="details">
-                            <img src="${product.image}" class="card-img-top mb-4" alt="...">
+                                <img src="${product.image}" class="card-img-top mb-4" alt="${product.name}"/>
                                 <h5 class="card-title">${product.name}</h5>
                                     <p>$${product.price}</p>
                                         <hr>
-                                            <button class="btn btn-success" id="">Add to cart</button>
                             </a>
+                            <button class="btn btn-success addToCartBtn" id="${product.id}">
+                                <i class="fas fa-cart-plus"></i> Add to cart
+                            </button>
                         </div>
                     </div>
                 </div>
                 `;
-            this.searchResultContainer.innerHTML = output;
+            this.searchResultContainer.innerHTML = output; 
         });
     }
 
@@ -36,7 +38,7 @@ class UI {
                     <div class="card mb-3">
                         <div class="card-body text-center">
                             <a href="details?id=${product.id}" id="${product.id}" class="details">
-                            <img src="${product.image}" class="card-img-top mb-4" alt="...">
+                            <img src="${product.image}" class="card-img-top mb-4" alt="${product.name}">
                                 <h5 class="card-title">${product.name}</h5>
                                     <p>$${product.price}</p>
                                         <hr>
