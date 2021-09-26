@@ -83,11 +83,10 @@ function decreaseProductQuantity(e) {
         }
         for(let i = 0; i < array.length;++i) {
             if(array[i].id === idOfItemRemoved)
-            { 
-                let exists= true; 
+            {  
                 array[i].quantity -= 1;
                 if(array[i].quantity == 0){
-                    
+                    array.splice(i,1);
                 }
             }
         }
@@ -106,11 +105,11 @@ function decreaseProductQuantity(e) {
 
         for(let i = 0; i < array.length;++i) {
             if(array[i].id === idOfItemRemoved)
-            { 
-                let exists= true; 
+            {  
                 array[i].quantity -= 1;
+                // console.log(array[i].quantity);
                 if(array[i].quantity == 0){
-                    
+                    array.splice(i,1);
                 }
             }
         }
@@ -136,12 +135,8 @@ function increaseProductQuantity(e) {
         }
         for(let i = 0; i < array.length;++i) {
             if(array[i].id === idOfItemRemoved)
-            { 
-                let exists= true; 
+            {  
                 array[i].quantity += 1;
-                if(array[i].quantity == 0){
-                    
-                }
             }
         }
         localStorage.setItem('cart', JSON.stringify(array));
@@ -156,12 +151,8 @@ function increaseProductQuantity(e) {
         }
         for(let i = 0; i < array.length;++i) {
             if(array[i].id === idOfItemRemoved)
-            { 
-                let exists= true; 
+            {  
                 array[i].quantity += 1;
-                if(array[i].quantity == 0){
-                    
-                }
             }
         }
         localStorage.setItem('cart', JSON.stringify(array));
@@ -178,6 +169,21 @@ function removeProductFromCart(e){
 
     if(removeProductBtn){
         console.log('BTN pressed');
+        const idOfItemRemoved = e.target.value;
+        if(localStorage.getItem('cart'))
+        {  
+          var array = JSON.parse(localStorage.getItem('cart'));
+        } else {
+          var array = []; 
+        }
+        for(let i = 0; i < array.length;++i) {
+            if(array[i].id === idOfItemRemoved)
+            {  
+                array.splice(i,1);
+            }
+        }
+        localStorage.setItem('cart', JSON.stringify(array));
+        window.location.reload();
     } else if(removeProductSVG) {
         console.log('SVG pressed');
         console.log(removeProductSVG.property);
