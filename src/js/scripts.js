@@ -140,6 +140,7 @@ function addToCartFunction(e) {
           { 
             exists= true; 
             array[i].quantity += 1;
+            array[i].totalPrice = array[i].quantity * array[i].price;
           }
         }
 
@@ -173,6 +174,7 @@ function addToCartFunction(e) {
           { 
             exists= true; 
             array[i].quantity += 1;
+            array[i].totalPrice = array[i].quantity * array[i].price;
           }
         }
 
@@ -206,6 +208,7 @@ function addToCartFunction(e) {
           { 
             exists= true; 
             array[i].quantity += 1;
+            array[i].totalPrice = array[i].quantity * array[i].price;
           }
         }
 

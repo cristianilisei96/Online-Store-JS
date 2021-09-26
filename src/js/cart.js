@@ -3,8 +3,8 @@ import { ui } from './ui.js';
 
 let tbodyProductsInCart = document.getElementById('tbodyProductsInCart');
 let cardShoppingCart = document.getElementById('cardShoppingCart');
-var cartContentStored = localStorage.getItem('cart');
-var productsOnCartStored = JSON.parse(cartContentStored);
+let cartContentStored = localStorage.getItem('cart');
+let productsOnCartStored = JSON.parse(cartContentStored);
 
 // Get buttons from checkout
 const continueShoppingBtn = document.getElementById('continueShoppingBtn');
@@ -24,7 +24,7 @@ function checkCartLocalStorage(){
                             <img src="${product.image}" class="img-sm">
                         </a>
                     </td>
-                    <td>
+                    <td class="text-nowrap">
                         <a href="details?id=${product.id}">
                             <h6 class="m-0">${product.name}</h6>
                         </a>
@@ -36,7 +36,7 @@ function checkCartLocalStorage(){
                                     <i class="fas fa-minus qtProductMinusOneIcon"></i>
                                 </button>
                             </span>
-                            <input type="text" value="${product.quantity}" class="form-control quantityOfItem text-center" disabled/>
+                            <input type="text" value="${product.quantity}" class="form-control text-center" disabled/>
                             <span class="input-group-btn">
                                 <button value="${product.id}" type="button" class="btn btn-success qtProductPlusOneBtn">
                                     <i class="fas fa-plus qtProductPlusOneIcon"></i>
@@ -49,7 +49,7 @@ function checkCartLocalStorage(){
                             <p class="priceOfItem m-0 fw-bold color-default">$${product.price}</p> 
                         </div>
                     </td>
-                    <td  class="text-end"> 
+                    <td class="text-end"> 
                         <button value="${product.id}" type="button" class="btn btn-danger removeProductBtn">
                             <i value="${product.id}" class="fas fa-trash removeProductIcon"></i>
                         </button>
@@ -61,8 +61,18 @@ function checkCartLocalStorage(){
         clearCartBtn.disabled = true;
         let output = '';
             output += 
-                `<h4 class="m-0">I did not find any product in your cart</h4>`;
-            cardShoppingCart.innerHTML = output;
+                `<div id="backgroundProductsApple" class="p-5 text-center">
+                    <h4 class="text-success">Your cart is empty</h4>
+                        <p>To add products to cart please go back to the store.</p>
+                            <button type="button" id="backToTheStoreBtn" class="btn btn-primary">Go back to the store</button>
+                </div>`;
+            
+        cardShoppingCart.innerHTML = output;
+        cardShoppingCart.addEventListener('click', function(e) {
+            if(e.target.id == 'backToTheStoreBtn'){
+                goToHome();
+            }
+        });
     }
 }
 
@@ -74,7 +84,6 @@ function decreaseProductQuantity(e) {
     const eventTargetOnBtn = e.target.classList.contains('qtProductMinusOneBtn');
     const eventTargetOnSVG = e.target.classList.contains('qtProductMinusOneIcon');
     const eventTargetOnPath = e.target.parentElement.parentElement.classList.contains('qtProductMinusOneBtn');
-
     if(eventTargetOnBtn) {
         const idOfItemToBeDecreased = e.target.value;
         if(localStorage.getItem('cart'))
@@ -89,6 +98,8 @@ function decreaseProductQuantity(e) {
                 array[i].quantity -= 1;
                 if(array[i].quantity == 0){
                     array.splice(i,1);
+                } else {
+                array[i].totalPrice = array[i].quantity * array[i].price;
                 }
             }
         }
@@ -108,6 +119,8 @@ function decreaseProductQuantity(e) {
                 array[i].quantity -= 1;
                 if(array[i].quantity == 0){
                     array.splice(i,1);
+                } else {
+                    array[i].totalPrice = array[i].quantity * array[i].price;
                 }
             }
         }
@@ -127,6 +140,8 @@ function decreaseProductQuantity(e) {
                 array[i].quantity -= 1;
                 if(array[i].quantity == 0){
                     array.splice(i,1);
+                } else {
+                    array[i].totalPrice = array[i].quantity * array[i].price;
                 }
             }
         }
@@ -141,7 +156,6 @@ function increaseProductQuantity(e) {
     const eventTargetOnBtn = e.target.classList.contains('qtProductPlusOneBtn');
     const eventTargetOnSVG = e.target.classList.contains('qtProductPlusOneIcon');
     const eventTargetOnPath = e.target.parentElement.parentElement.classList.contains('qtProductPlusOneBtn');
-
     if(eventTargetOnBtn) {
         const idOfItemToBeIncreased = e.target.value;
         if(localStorage.getItem('cart'))
@@ -154,6 +168,7 @@ function increaseProductQuantity(e) {
             if(array[i].id === idOfItemToBeIncreased)
             {  
                 array[i].quantity += 1;
+                array[i].totalPrice = array[i].quantity * array[i].price;
             }
         }
         localStorage.setItem('cart', JSON.stringify(array));
@@ -170,6 +185,7 @@ function increaseProductQuantity(e) {
             if(array[i].id === idOfItemToBeIncreased)
             {  
                 array[i].quantity += 1;
+                array[i].totalPrice = array[i].quantity * array[i].price;
             }
         }
         localStorage.setItem('cart', JSON.stringify(array));
@@ -186,6 +202,7 @@ function increaseProductQuantity(e) {
             if(array[i].id === idOfItemToBeIncreased)
             {  
                 array[i].quantity += 1;
+                array[i].totalPrice = array[i].quantity * array[i].price;
             }
         }
         localStorage.setItem('cart', JSON.stringify(array));
@@ -199,7 +216,6 @@ function removeProductFromCart(e){
     const eventTargetOnBtn = e.target.classList.contains('removeProductBtn');
     const eventTargetOnSVG = e.target.classList.contains('removeProductIcon');
     const eventTargetOnPath = e.target.parentElement.parentElement.classList.contains('removeProductBtn');
-
     if(eventTargetOnBtn){
         const idOfItemToBeRemoved = e.target.value;
         if(localStorage.getItem('cart'))
@@ -255,23 +271,14 @@ const totalPriceValue = document.getElementById('totalPriceValue');
 const totalValue = document.getElementById('totalValue');
 
 function updateCheckout(){
-    let checkoutTotalPrice = 0;
+    let totalPriceCalculation = 0;
     
-    let quantityOfItems = document.querySelectorAll('.quantityOfItem');
-    let priceOfItems = document.querySelectorAll('.priceOfItem');
-    // console.log(quantityOfItems);
-    // console.log(typeof priceOfItems);
-
-    quantityOfItems.forEach(item => {
-        // console.log(item.value);
-    });
-    priceOfItems.forEach(item => {
-        // console.log(item.innerHTML);
-    });
-
-    if(cartContentStored){  
-        totalPriceValue.innerHTML = 'ceva';
-        totalValue.innerHTML = 'ceva2';
+    if(cartContentStored){
+        productsOnCartStored.forEach(element => {
+            totalPriceCalculation = element.totalPrice += totalPriceCalculation;
+        });
+        totalPriceValue.innerHTML = '$' + totalPriceCalculation;
+        totalValue.innerHTML = '$' + totalPriceCalculation;
     } else {
         totalPriceValue.innerHTML = '$0';
         totalValue.innerHTML = '$0';
