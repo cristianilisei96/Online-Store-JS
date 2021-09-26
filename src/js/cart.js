@@ -11,14 +11,9 @@ const continueShoppingBtn = document.getElementById('continueShoppingBtn');
 continueShoppingBtn.addEventListener('click', goToHome);
 const clearCartBtn = document.getElementById('clearCartBtn');
 
-// Get spinner load container
-let loadingSpinner = document.getElementById("loadingSpinner");
-loadingSpinner.removeAttribute("hidden");
-
 function checkCartLocalStorage(){
     if(cartContentStored === '[]'){
         clearCartFunction();
-        loadingSpinner.setAttribute("hidden","");
     } else if(cartContentStored){        
         let output = '';
         productsOnCartStored.forEach(product => {
@@ -62,14 +57,12 @@ function checkCartLocalStorage(){
                 </tr>`;
             tbodyProductsInCart.innerHTML = output;
         });
-        loadingSpinner.setAttribute("hidden","");
     } else {
         clearCartBtn.disabled = true;
         let output = '';
             output += 
                 `<h4 class="m-0">I did not find any product in your cart</h4>`;
             cardShoppingCart.innerHTML = output;
-        loadingSpinner.setAttribute("hidden","");
     }
 }
 
