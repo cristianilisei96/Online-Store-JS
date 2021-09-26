@@ -19,4 +19,8 @@ function searchProducts(e) {
     window.location = 'search?search=' + searchInput.value;
 }
 
-http.get(categoryFilterURL).then((products) => ui.showSearchResult(products));
+http.get(categoryFilterURL)
+    .then((products) => {ui.showSearchResult(products)});
+
+// Add eventlistener to btn to add product to cart
+document.getElementById('products-container').addEventListener('click', addToCartFunction);

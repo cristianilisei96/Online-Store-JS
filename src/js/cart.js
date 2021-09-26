@@ -76,7 +76,6 @@ function decreaseProductQuantity(e) {
     
     if(decreaseItemBtn) {
         const idOfItemRemoved = e.target.value;
-        
         if(localStorage.getItem('cart'))
         {  
           var array = JSON.parse(localStorage.getItem('cart'));
@@ -97,14 +96,12 @@ function decreaseProductQuantity(e) {
         window.location.reload();
     } else if(decreaseItemIcon.classList.contains('qtMinusOne')){
         const idOfItemRemoved = e.target.parentElement.parentElement.value;
-        
         if(localStorage.getItem('cart'))
         {  
           var array = JSON.parse(localStorage.getItem('cart'));
         } else {
           var array = []; 
         }
-
         for(let i = 0; i < array.length;++i) {
             if(array[i].id === idOfItemRemoved)
             {  
@@ -115,7 +112,6 @@ function decreaseProductQuantity(e) {
                 }
             }
         }
-
         localStorage.setItem('cart', JSON.stringify(array));
         window.location.reload();
     }    
@@ -126,7 +122,6 @@ tbodyProductsInCart.addEventListener('click', increaseProductQuantity);
 function increaseProductQuantity(e) {
     const increaseItemBtn = e.target.classList.contains('qtPlusOne'); 
     const increaseItemIcon = e.target.parentElement.parentElement;
-    
     if(increaseItemBtn) {
         const idOfItemRemoved = e.target.value;
         if(localStorage.getItem('cart'))
@@ -168,9 +163,7 @@ function removeProductFromCart(e){
     const removeProductBtn = e.target.classList.contains('removeProduct'); 
     const removeProductSVG = e.target.parentElement.tagName == 'BUTTON';
     const removePathBtn = e.target.parentElement.parentElement.tagName == 'BUTTON';
-
     if(removeProductBtn){
-        console.log('BTN pressed');
         const idOfItemRemoved = e.target.value;
         if(localStorage.getItem('cart'))
         {  
@@ -187,35 +180,38 @@ function removeProductFromCart(e){
         localStorage.setItem('cart', JSON.stringify(array));
         window.location.reload();
     } else if(removeProductSVG) {
-        console.log('SVG pressed');
-        console.log(removeProductSVG.property);
+        const idOfItemRemoved = e.target.parentElement;
+        if(localStorage.getItem('cart'))
+        {  
+          var array = JSON.parse(localStorage.getItem('cart'));
+        } else {
+          var array = []; 
+        }
+        for(let i = 0; i < array.length;++i) {
+            if(array[i].id === idOfItemRemoved)
+            {  
+                array.splice(i,1);
+            }
+        }
+        localStorage.setItem('cart', JSON.stringify(array));
+        window.location.reload();
     } else if(removePathBtn){
-        console.log('Path pressed');
-    } else {
-        console.log(e.target);
-    }
-
-    const idOfItemRemoved = e.target.value;
-    
-    // console.log(idOfItemRemoved);
-
-        // if(localStorage.getItem('cart'))
-        // {  
-        // var array = JSON.parse(localStorage.getItem('cart'));
-        // } else {
-        // var array = []; 
-        // }
-
-        // for(let i = 0; i < array.length; ++i) {
-        //     if(array[i].id === idOfItemRemoved)
-        //     { 
-                
-                
-        //     }
-        // }
-
-        // localStorage.setItem('cart', JSON.stringify(array));
-        // window.location.reload();
+        const idOfItemRemoved = e.target.parentElement.parentElement.value;
+        if(localStorage.getItem('cart'))
+        {  
+          var array = JSON.parse(localStorage.getItem('cart'));
+        } else {
+          var array = []; 
+        }
+        for(let i = 0; i < array.length;++i) {
+            if(array[i].id === idOfItemRemoved)
+            {  
+                array.splice(i,1);
+            }
+        }
+        localStorage.setItem('cart', JSON.stringify(array));
+        window.location.reload();
+    } 
 }
 
 const totalPriceValue = document.getElementById('totalPriceValue');

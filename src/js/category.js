@@ -31,5 +31,5 @@ if(currentLocation.href.indexOf(searchParam) != -1) {
     
 }
 
-// Script cart - add product to localstorage
+// Add eventlistener to btn to add product to cart
 document.getElementById('products-items-list').addEventListener('click', addToCartFunction);

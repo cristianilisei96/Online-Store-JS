@@ -34,9 +34,6 @@ function showElem(products, index) {
         let currentIndex = `${index}`;
         let currentPosition = `${index+1}`;
 
-        console.log('Current index is : ' + currentIndex);
-        console.log('Current position is : ' + currentPosition);
-
         if (index == 0) { 
             prevBtnHTML.disabled = true; 
         }
@@ -62,13 +59,11 @@ function showElem(products, index) {
 }
   
 function nextElem(products, index, current) {
-    // let currentElem = current.parentElement;
     index++;
     showElem(products, index);
 }
   
 function prevElem(products, index, current) {
-    let currentElem = current.parentElement;
     index--;
     showElem(products, index);
 }
