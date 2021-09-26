@@ -61,6 +61,15 @@ a {
     border-radius: .25rem!important;
 }
 
+a.dropdown-item.active:hover {
+    color: #000!important;
+    background-color: #198754!important;
+}
+
+a.dropdown-item.notactive:hover {
+    background-color: initial!important;
+}
+
 .navbar-toggler:focus {
     box-shadow: none!important;
 }

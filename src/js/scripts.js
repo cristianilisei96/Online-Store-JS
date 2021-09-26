@@ -52,9 +52,11 @@ $('a[href*="#"]')
 function notify(nameEvent, type, message) {
   if(type == "success" && nameEvent == "productAddedToCart") {
     var prefix = '<i class="fas fa-cart-plus"></i> ';
+  } else if(type == 'success' && nameEvent == 'loginSuccessfully') {
+    var prefix = '<i class="fas fa-thumbs-up"></i> '; 
   } else if(type == 'success' && nameEvent == 'addProductToJSON') {
     var prefix = '<i class="fas fa-cart-plus"></i> '; 
-  }else if(type == 'danger' && nameEvent == "deleteProductFromJSON") {
+  } else if(type == 'danger' && nameEvent == "deleteProductFromJSON") {
     var prefix = '<i class="fas fa-info-circle"></i> ';
   } 
   else {

@@ -6,6 +6,7 @@ const productsAdminURL = 'https://61363d1a8700c50017ef54c3.mockapi.io/products/'
 // Get elem from html
 const loginPage = document.getElementById('loginPage');
 const appPage = document.getElementById('appPage');
+const adminNavLink = document.getElementById('adminNavLink');
 
 const inputs = [
     document.getElementById('emailFieldAdmin'),
@@ -86,6 +87,8 @@ loginBtn.addEventListener('click', (e) => {
         if( email == objAdmin[i].email && password == objAdmin[i].password ){
             loginPage.classList.add('d-none');
             appPage.classList.add('d-block');
+            notify('loginSuccessfully','success','You have successfully logged in');
+            adminNavLink.classList.add('d-none');
         }
     }
 });
@@ -164,7 +167,7 @@ function deleteProduct(e) {
         http
             .delete(`${productsAdminURL}/${id}`)
             .then(() => getProducts())
-            .then(() => notify('deleteProductFromJSON', 'danger', 'The product was succesfully deleted!'))
+            .then(() => notify('deleteProductFromJSON', 'danger', 'The product was succesfully deleted'))
             .catch('Error on delete');
     }
 }
