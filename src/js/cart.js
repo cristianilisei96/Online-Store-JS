@@ -26,11 +26,11 @@ function checkCartLocalStorage(){
                     </td>
                     <td>
                         <a href="details?id=${product.id}">
-                            <h6>${product.name}</h6>
+                            <h6 class="m-0">${product.name}</h6>
                         </a>
                     </td>
-                    <td style="width: 150px; display: block;"> 
-                        <div class="input-group">
+                    <td> 
+                        <div class="input-group" style="width:130px;">
                             <span class="input-group-btn">
                                 <button value="${product.id}" type="button" class="btn btn-success qtMinusOne">
                                     <i class="fas fa-minus"></i>
