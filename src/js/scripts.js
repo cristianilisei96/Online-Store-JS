@@ -112,11 +112,14 @@ changeNumberOfProductsInCart();
 
 // Script add product to cart
 function addToCartFunction(e) {
-  let idProduct = e.target.id;
+  const eventTargetOnBtn = e.target.classList.contains('addToCartBtn');
+  const eventTargetOnSVG = e.target.classList.contains('addToCartIcon');
+  const eventTargetOnPath = e.target.tagName === 'path';
 
-  if(e.target.classList.contains('addToCartBtn')) {
+  if(eventTargetOnBtn) {
     notify('productAddedToCart','success', 'Product added to cart');
 
+    let idProduct = e.target.id;
     let urlFetchProductToCart = 'https://61363d1a8700c50017ef54c3.mockapi.io/products/' + idProduct;
   
     fetch(urlFetchProductToCart)
@@ -146,6 +149,75 @@ function addToCartFunction(e) {
         localStorage.setItem('cart', JSON.stringify(array));
         changeNumberOfProductsInCart();
     });
+  } else if(eventTargetOnSVG){
+    notify('productAddedToCart','success', 'Product added to cart');
+
+    let idProduct = e.target.parentElement.id;
+    let urlFetchProductToCart = 'https://61363d1a8700c50017ef54c3.mockapi.io/products/' + idProduct;
+
+    fetch(urlFetchProductToCart)
+      .then((response) => response.json())
+      .then(data => {
+        if(localStorage.getItem('cart'))
+        {  
+          var array = JSON.parse(localStorage.getItem('cart'));
+        } else {
+          var array = []; 
+        }
+
+        let exists = false;
+        for(let i = 0; i < array.length; ++i) {
+          if(array[i].id === data.id)
+          { 
+            exists= true; 
+            array[i].quantity += 1;
+          }
+        }
+
+        if(!exists)	
+        { 
+          array.push(data)
+        };
+
+        localStorage.setItem('cart', JSON.stringify(array));
+        changeNumberOfProductsInCart();
+    });
+  } else if(eventTargetOnPath){
+    notify('productAddedToCart','success', 'Product added to cart');
+
+    let idProduct = e.target.parentElement.parentElement.id;
+    let urlFetchProductToCart = 'https://61363d1a8700c50017ef54c3.mockapi.io/products/' + idProduct;
+
+    fetch(urlFetchProductToCart)
+      .then((response) => response.json())
+      .then(data => {
+        if(localStorage.getItem('cart'))
+        {  
+          var array = JSON.parse(localStorage.getItem('cart'));
+        } else {
+          var array = []; 
+        }
+
+        let exists = false;
+        for(let i = 0; i < array.length; ++i) {
+          if(array[i].id === data.id)
+          { 
+            exists= true; 
+            array[i].quantity += 1;
+          }
+        }
+
+        if(!exists)	
+        { 
+          array.push(data)
+        };
+
+        localStorage.setItem('cart', JSON.stringify(array));
+        changeNumberOfProductsInCart();
+    });
+
+    console.log('ai apasat pe path');
+    console.log();
   }
 }
 

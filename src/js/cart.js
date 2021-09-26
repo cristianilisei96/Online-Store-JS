@@ -32,14 +32,14 @@ function checkCartLocalStorage(){
                     <td> 
                         <div class="input-group" style="width:130px;">
                             <span class="input-group-btn">
-                                <button value="${product.id}" type="button" class="btn btn-success qtMinusOne">
-                                    <i class="fas fa-minus"></i>
+                                <button value="${product.id}" type="button" class="btn btn-success qtProductMinusOneBtn">
+                                    <i class="fas fa-minus qtProductMinusOneIcon"></i>
                                 </button>
                             </span>
                             <input type="text" value="${product.quantity}" class="form-control quantityOfItem text-center" disabled/>
                             <span class="input-group-btn">
-                                <button value="${product.id}" type="button" class="btn btn-default btn-success qtPlusOne">
-                                    <i class="fas fa-plus"></i>
+                                <button value="${product.id}" type="button" class="btn btn-success qtProductPlusOneBtn">
+                                    <i class="fas fa-plus qtProductPlusOneIcon"></i>
                                 </button>
                             </span>
                         </div>
@@ -50,8 +50,8 @@ function checkCartLocalStorage(){
                         </div>
                     </td>
                     <td  class="text-end"> 
-                        <button value="${product.id}" type="button" class="btn btn-danger removeProduct">
-                            <i value="${product.id}" class="fas fa-trash"></i>
+                        <button value="${product.id}" type="button" class="btn btn-danger removeProductBtn">
+                            <i value="${product.id}" class="fas fa-trash removeProductIcon"></i>
                         </button>
                     </td>
                 </tr>`;
@@ -71,31 +71,12 @@ checkCartLocalStorage();
 tbodyProductsInCart.addEventListener('click', decreaseProductQuantity);
 
 function decreaseProductQuantity(e) {
-    const decreaseItemBtn = e.target.classList.contains('qtMinusOne'); 
-    const decreaseItemIcon = e.target.parentElement.parentElement;
-    
-    if(decreaseItemBtn) {
-        const idOfItemRemoved = e.target.value;
-        if(localStorage.getItem('cart'))
-        {  
-          var array = JSON.parse(localStorage.getItem('cart'));
-        } else {
-          var array = []; 
-        }
-        for(let i = 0; i < array.length;++i) {
-            if(array[i].id === idOfItemRemoved)
-            {  
-                array[i].quantity -= 1;
-                if(array[i].quantity == 0){
-                    array.splice(i,1);
-                }
-            }
-        }
+    const eventTargetOnBtn = e.target.classList.contains('qtProductMinusOneBtn');
+    const eventTargetOnSVG = e.target.classList.contains('qtProductMinusOneIcon');
+    const eventTargetOnPath = e.target.parentElement.parentElement.classList.contains('qtProductMinusOneBtn');
 
-        localStorage.setItem('cart', JSON.stringify(array));
-        window.location.reload();
-    } else if(decreaseItemIcon.classList.contains('qtMinusOne')){
-        const idOfItemRemoved = e.target.parentElement.parentElement.value;
+    if(eventTargetOnBtn) {
+        const idOfItemToBeDecreased = e.target.value;
         if(localStorage.getItem('cart'))
         {  
           var array = JSON.parse(localStorage.getItem('cart'));
@@ -103,10 +84,9 @@ function decreaseProductQuantity(e) {
           var array = []; 
         }
         for(let i = 0; i < array.length;++i) {
-            if(array[i].id === idOfItemRemoved)
+            if(array[i].id === idOfItemToBeDecreased)
             {  
                 array[i].quantity -= 1;
-                // console.log(array[i].quantity);
                 if(array[i].quantity == 0){
                     array.splice(i,1);
                 }
@@ -114,16 +94,56 @@ function decreaseProductQuantity(e) {
         }
         localStorage.setItem('cart', JSON.stringify(array));
         window.location.reload();
-    }    
+    } else if(eventTargetOnSVG){
+        const idOfItemToBeDecreased = e.target.parentElement.value;
+        if(localStorage.getItem('cart'))
+        {  
+          var array = JSON.parse(localStorage.getItem('cart'));
+        } else {
+          var array = []; 
+        }
+        for(let i = 0; i < array.length;++i) {
+            if(array[i].id === idOfItemToBeDecreased)
+            {  
+                array[i].quantity -= 1;
+                if(array[i].quantity == 0){
+                    array.splice(i,1);
+                }
+            }
+        }
+        localStorage.setItem('cart', JSON.stringify(array));
+        window.location.reload();
+    } else if(eventTargetOnPath){
+        const idOfItemToBeDecreased = e.target.parentElement.parentElement.value;
+        if(localStorage.getItem('cart'))
+        {  
+          var array = JSON.parse(localStorage.getItem('cart'));
+        } else {
+          var array = []; 
+        }
+        for(let i = 0; i < array.length;++i) {
+            if(array[i].id === idOfItemToBeDecreased)
+            {  
+                array[i].quantity -= 1;
+                if(array[i].quantity == 0){
+                    array.splice(i,1);
+                }
+            }
+        }
+        localStorage.setItem('cart', JSON.stringify(array));
+        window.location.reload();
+    }
 }
 
 tbodyProductsInCart.addEventListener('click', increaseProductQuantity);
 
 function increaseProductQuantity(e) {
-    const increaseItemBtn = e.target.classList.contains('qtPlusOne'); 
-    const increaseItemIcon = e.target.parentElement.parentElement;
-    if(increaseItemBtn) {
-        const idOfItemRemoved = e.target.value;
+    const eventTargetOnBtn = e.target.classList.contains('qtProductPlusOneBtn');
+    const eventTargetOnSVG = e.target.classList.contains('qtProductPlusOneIcon');
+    const eventTargetOnPath = e.target.parentElement.parentElement.classList.contains('qtProductPlusOneBtn');
+
+    if(eventTargetOnBtn) {
+        const idOfItemToBeIncreased = e.target.value;
         if(localStorage.getItem('cart'))
         {  
           var array = JSON.parse(localStorage.getItem('cart'));
@@ -131,15 +151,15 @@ function increaseProductQuantity(e) {
           var array = []; 
         }
         for(let i = 0; i < array.length;++i) {
-            if(array[i].id === idOfItemRemoved)
+            if(array[i].id === idOfItemToBeIncreased)
             {  
                 array[i].quantity += 1;
             }
         }
         localStorage.setItem('cart', JSON.stringify(array));
         window.location.reload();
-    } else if(increaseItemIcon.classList.contains('qtPlusOne')){
-        const idOfItemRemoved = e.target.parentElement.parentElement.value;
+    } else if(eventTargetOnSVG){
+        const idOfItemToBeIncreased = e.target.parentElement.value;
         if(localStorage.getItem('cart'))
         {  
           var array = JSON.parse(localStorage.getItem('cart'));
@@ -147,24 +167,41 @@ function increaseProductQuantity(e) {
           var array = []; 
         }
         for(let i = 0; i < array.length;++i) {
-            if(array[i].id === idOfItemRemoved)
+            if(array[i].id === idOfItemToBeIncreased)
             {  
                 array[i].quantity += 1;
             }
         }
         localStorage.setItem('cart', JSON.stringify(array));
         window.location.reload();
-    } 
+    } else if(eventTargetOnPath){
+        const idOfItemToBeIncreased = e.target.parentElement.parentElement.value;
+        if(localStorage.getItem('cart'))
+        {  
+          var array = JSON.parse(localStorage.getItem('cart'));
+        } else {
+          var array = []; 
+        }
+        for(let i = 0; i < array.length;++i) {
+            if(array[i].id === idOfItemToBeIncreased)
+            {  
+                array[i].quantity += 1;
+            }
+        }
+        localStorage.setItem('cart', JSON.stringify(array));
+        window.location.reload();
+    }
 }
 
 tbodyProductsInCart.addEventListener('click', removeProductFromCart);
 
 function removeProductFromCart(e){
-    const removeProductBtn = e.target.classList.contains('removeProduct'); 
-    const removeProductSVG = e.target.parentElement.tagName == 'BUTTON';
-    const removePathBtn = e.target.parentElement.parentElement.tagName == 'BUTTON';
-    if(removeProductBtn){
-        const idOfItemRemoved = e.target.value;
+    const eventTargetOnBtn = e.target.classList.contains('removeProductBtn');
+    const eventTargetOnSVG = e.target.classList.contains('removeProductIcon');
+    const eventTargetOnPath = e.target.parentElement.parentElement.classList.contains('removeProductBtn');
+
+    if(eventTargetOnBtn){
+        const idOfItemToBeRemoved = e.target.value;
         if(localStorage.getItem('cart'))
         {  
           var array = JSON.parse(localStorage.getItem('cart'));
@@ -172,15 +209,15 @@ function removeProductFromCart(e){
           var array = []; 
         }
         for(let i = 0; i < array.length;++i) {
-            if(array[i].id === idOfItemRemoved)
+            if(array[i].id === idOfItemToBeRemoved)
             {  
                 array.splice(i,1);
             }
         }
         localStorage.setItem('cart', JSON.stringify(array));
         window.location.reload();
-    } else if(removeProductSVG) {
-        const idOfItemRemoved = e.target.parentElement;
+    } else if(eventTargetOnSVG) {
+        const idOfItemToBeRemoved = e.target.parentElement.value;
         if(localStorage.getItem('cart'))
         {  
           var array = JSON.parse(localStorage.getItem('cart'));
@@ -188,15 +225,15 @@ function removeProductFromCart(e){
           var array = []; 
         }
         for(let i = 0; i < array.length;++i) {
-            if(array[i].id === idOfItemRemoved)
+            if(array[i].id === idOfItemToBeRemoved)
             {  
                 array.splice(i,1);
             }
         }
         localStorage.setItem('cart', JSON.stringify(array));
         window.location.reload();
-    } else if(removePathBtn){
-        const idOfItemRemoved = e.target.parentElement.parentElement.value;
+    } else if(eventTargetOnPath){
+        const idOfItemToBeRemoved = e.target.parentElement.parentElement.value;
         if(localStorage.getItem('cart'))
         {  
           var array = JSON.parse(localStorage.getItem('cart'));
@@ -204,7 +241,7 @@ function removeProductFromCart(e){
           var array = []; 
         }
         for(let i = 0; i < array.length;++i) {
-            if(array[i].id === idOfItemRemoved)
+            if(array[i].id === idOfItemToBeRemoved)
             {  
                 array.splice(i,1);
             }

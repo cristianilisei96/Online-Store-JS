@@ -20,7 +20,7 @@ class UI {
                                         <hr>
                             </a>
                             <button class="btn btn-success addToCartBtn" id="${product.id}">
-                                <i class="fas fa-cart-plus"></i> Add to cart
+                                <i class="fas fa-cart-plus addToCartIcon"></i> Add to cart
                             </button>
                         </div>
                     </div>
@@ -44,7 +44,7 @@ class UI {
                                         <hr>
                             </a>
                             <button class="btn btn-success addToCartBtn" id="${product.id}">
-                                <i class="fas fa-cart-plus"></i> Add to cart
+                                <i class="fas fa-cart-plus addToCartIcon"></i> Add to cart
                             </button>
                         </div>
                     </div>
@@ -73,7 +73,7 @@ class UI {
                 <p>${product.description}.</p>
                 <div class="text-xs-center text-sm-center text-md-start text-lg-start text-xl-start">
                     <button class="btn btn-success addToCartBtn" id="${product.id}">
-                        <i class="fas fa-cart-plus"></i> Add to cart
+                        <i class="fas fa-cart-plus addToCartIcon"></i> Add to cart
                     </button>
                 </div>
             </div>
