@@ -62,6 +62,9 @@ function checkCartLocalStorage(){
                 `<h4 class="m-0">I did not find any product in your cart</h4>`;
             cardShoppingCart.innerHTML = output;
     }
+    if(cartContentStored === '[]'){
+        clearCartFunction();
+    } 
 }
 
 checkCartLocalStorage();
