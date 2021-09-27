@@ -78,6 +78,9 @@ class UI {
                 </div>
             </div>
         </div>`;
+        // Get title element of local category page
+        let websiteTitle = document.getElementById('websiteTitle');
+        websiteTitle.textContent = `${product.name}`;
         // Script cart - add product to localstorage
         document.getElementById(`${product.id}`).addEventListener('click', addToCartFunction);
     }

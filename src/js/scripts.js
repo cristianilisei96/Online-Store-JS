@@ -238,10 +238,10 @@ function goToHome(){
   window.location.href = "index.html";
 }
 
-// Add modals to html pages
+// Add footer and modals to html pages
 $(function(){
   $("#footer").load("./src/include/footer.html");
-  $("#modals").load("./src/include/modalsInfo.html");
+  $("#modals").load("./src/include/footerModalsInfo.html");
 });
 
 
