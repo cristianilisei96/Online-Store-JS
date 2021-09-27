@@ -104,10 +104,10 @@ class UI {
                         <p class="m-0 fw-bold">${product.stock}</p>
                     </td>
                     <td id="actionsBtns" class="text-nowrap">
-                        <button type="button" class="btn btn-warning update" id="${product.id}">
+                        <button type="button" class="btn btn-warning updateBtn" id="${product.id}">
                             <i class="fas fa-pencil-alt"></i>
                         </button>
-                        <button type="button" class="btn btn-danger delete" id="${product.id}">
+                        <button type="button" class="btn btn-danger deleteBtn" id="${product.id}">
                             <i class="fas fa-trash"></i>
                         </button>
                     </td>
