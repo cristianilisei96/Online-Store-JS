@@ -54,6 +54,8 @@ function notify(nameEvent, type, message) {
     var prefix = '<i class="fas fa-cart-plus"></i> ';
   } else if(type == 'success' && nameEvent == 'loginSuccessfully') {
     var prefix = '<i class="fas fa-thumbs-up"></i> '; 
+  } else if(type == 'danger' && nameEvent == 'inputFieldFailed') {
+    var prefix = '<i class="fas fa-exclamation-circle"></i> '; 
   } else if(type == 'success' && nameEvent == 'addProductToJSON') {
     var prefix = '<i class="fas fa-cart-plus"></i> '; 
   } else if(type == 'danger' && nameEvent == "deleteProductFromJSON") {

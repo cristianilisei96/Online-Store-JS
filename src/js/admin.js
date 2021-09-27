@@ -13,36 +13,66 @@ const loginBtn = document.getElementById('loginBtn');
 
 var objAdmin = [
     {
-        email: "cristianilisei96@gmail.com",
-        fullname: "Cristian Ilisei",
-        password: "Admin1"
-    }, 
-    {
         email: "admin@admin.com",
-        fullname: "Admin",
+        fullname: "Cristian Ilisei",
         password: "admin"
     }
 ];
 
-loginBtn.addEventListener('click', (e) => {
-    var emailInputValue = emailFieldAdmin.value;
-    var password = passwordFieldAdmin.value;
-    if ( password == '' ) {
-        console.log('password is empty');
+const inputs = [
+    document.getElementById('emailFieldAdmin'),
+    document.getElementById('passwordFieldAdmin')
+];
+
+inputs.forEach((input) => {
+    input.addEventListener('keydown', handler);
+});
+
+function handler(e) {
+    loginOnEnterKey(e);
+}
+
+function loginOnEnterKey(e) {
+    if (e.keyCode === 13) {
+        loginFormValidation(e);
+        if (e.cancelable) {
+            e.preventDefault();
+        }
     }
-    e.preventDefault();
+}
+
+function loginFormValidation(){
+    let emailInputValue = emailFieldAdmin.value;
+    let passwordInputValue = passwordFieldAdmin.value;
+
+    if(emailInputValue == '') {
+        notify('inputFieldFailed', 'danger', 'Email field cannot be empty');
+    } else if( (emailInputValue != objAdmin[0].email) ){
+        notify('inputFieldFailed', 'danger', 'Email is wrong');
+    } 
+
+    if(passwordInputValue == '') {
+        notify('inputFieldFailed', 'danger', 'Password field cannot be empty');
+    } else if( (passwordInputValue != objAdmin[0].password) ){
+        notify('inputFieldFailed', 'danger', 'Password is wrong');
+    }
+    
     for(let i = 0; i < objAdmin.length; i++) {
-        
-        if( (emailInputValue == objAdmin[i].email) && (password == objAdmin[i].password) ){
+        if( (emailInputValue == objAdmin[i].email) && (passwordInputValue == objAdmin[i].password) ){
             loginPage.hidden = true;
             appPage.hidden = false;
-            
             notify('loginSuccessfully','success','You have successfully logged in');
             sessionStorage.setItem('loginSession', objAdmin[i].fullname);
             checkIfItIsALoginSession();
         } 
+        
     }
     fullnameAdmin.innerText = sessionStorage.getItem('loginSession');
+}
+
+loginBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginFormValidation();
 });
 
 const homepageBtn = document.getElementById('homepageBtn');
@@ -93,7 +123,13 @@ function addNewProduct() {
 }
 
 function updateProduct(e) {
-    
+    const newnameValue = document.getElementById('newTitle').value;
+    const newImageValue = document.getElementById('newImage').value;
+    const newPriceValue = Number(document.getElementById('newPrice').value);
+    const newStockValue = Number(document.getElementById('newStock').value);
+    const newDescriptionValue = document.getElementById('newDescription').value;
+
+    http.put(productsAdminURL, product).then(() => getProducts()); 
 }
 
 function deleteProduct(e) {   
