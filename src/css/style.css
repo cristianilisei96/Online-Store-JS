@@ -114,7 +114,6 @@ video {
 }
 
 #backgroundEmptyCart{
-    /* background-image: url(https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/apple-new-arrivals-checkout-201804?wid=1960&hei=800&fmt=jpeg&qlt=80&.v=1523551959954); */
     background-image: url('../images/cart/bg.png');
     background-size: cover;
     background-position-x: right;

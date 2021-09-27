@@ -64,8 +64,8 @@ function checkCartLocalStorage(){
         let output = '';
             output += 
                 `<div id="customPaddingForBackground" class="p-5 text-center">
-                    <h4 class="text-success">Your cart is empty</h4>
-                        <p>To add products to cart please go back to the store.</p>
+                    <h4 class="text-success fw-bold">Your cart is empty</h4>
+                        <p class="fw-bold">To add products to cart please go back to the store.</p>
                             <button type="button" id="backToTheStoreBtn" class="btn btn-primary">Go back to the store</button>
                 </div>`;
             
