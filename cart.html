@@ -33,7 +33,7 @@
 					</ul>
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link text-white" href="cart.html">
+							<a class="nav-link color-default" href="cart.html">
 								<i class="fas fa-shopping-cart"></i> Cart
 								<span id="cartItemsNumber" class="text-white bg-success"></span>
 							</a>
@@ -45,7 +45,8 @@
 						</li>
 						<li id="sessionLoginLink" class="nav-item dropdown">
 							<a class="nav-link text-white dropdown-toggle" type="button" id="dropdownSessionLogin" data-bs-toggle="dropdown" aria-expanded="false">
-								<i class="fas fa-user-secret"></i> Cristian Ilisei
+								<i class="fas fa-user-secret"></i>
+									<span id="fullnameAdmin"></span>
 							</a>
 							<ul class="dropdown-menu bg-dark" aria-labelledby="dropdownSessionLogin">
 							  	<li>
@@ -65,7 +66,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-9">
-						<div class="card mb-3">
+						<div id="backgroundEmptyCart" class="card mb-3">
 							<div id="cardShoppingCart" class="card-body">
 								<div class="table-responsive">
 									<table class="table table-borderlesss m-0">

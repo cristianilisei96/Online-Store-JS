@@ -113,6 +113,23 @@ video {
     box-shadow: none;
 }
 
+#backgroundEmptyCart{
+    /* background-image: url(https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/apple-new-arrivals-checkout-201804?wid=1960&hei=800&fmt=jpeg&qlt=80&.v=1523551959954); */
+    background-image: url('../images/cart/bg.png');
+    background-size: cover;
+    background-position-x: right;
+    background-repeat: no-repeat;
+    background-color: #F2F2F2;
+}
+
+.backgroundIsNotEmpty{
+    background: none!important;
+}
+
+#customPaddingForBackground {
+    padding: 162px 20px!important;
+}
+
 .img-sm {
     width: 100px;
 }
@@ -210,18 +227,22 @@ footer .copyright svg {
         width: 20px!important;
     }
 }
-@media (min-width: 481px) and (max-width: 767px) {}
+@media (min-width: 481px) and (max-width: 767px) {
+    
+}
   
 @media (min-width: 320px) and (max-width: 480px) {
     .input-search {
         width: 250px!important;
     }    
+    
 }
 
 @media (max-width: 320px) {
     .input-search {
         width: 100px!important;
     }    
+    
 }
 
 @media (min-width: 0) { 

@@ -74,7 +74,7 @@ var objAdmin = [
     }, 
     {
         email: "admin@admin.com",
-        fullname: "admin",
+        fullname: "Admin",
         password: "admin"
     }
 ];
@@ -92,9 +92,9 @@ loginBtn.addEventListener('click', (e) => {
             appPage.hidden = false;
             
             notify('loginSuccessfully','success','You have successfully logged in');
-            sessionStorage.setItem('loginSession', 'ceva');
+            sessionStorage.setItem('loginSession', objAdmin[i].fullname);
             checkIfItIsALoginSession();
-            // window.location.reload();
+            window.location.reload();
         }
     }
 });

@@ -15,6 +15,8 @@ function checkCartLocalStorage(){
     if(cartContentStored === '[]'){
         clearCartFunction();
     } else if(cartContentStored){        
+        let bgEmptyCart = document.getElementById('backgroundEmptyCart');
+        bgEmptyCart.classList.add('backgroundIsNotEmpty');
         let output = '';
         productsOnCartStored.forEach(product => {
             output += 
@@ -61,7 +63,7 @@ function checkCartLocalStorage(){
         clearCartBtn.disabled = true;
         let output = '';
             output += 
-                `<div id="backgroundProductsApple" class="p-5 text-center">
+                `<div id="customPaddingForBackground" class="p-5 text-center">
                     <h4 class="text-success">Your cart is empty</h4>
                         <p>To add products to cart please go back to the store.</p>
                             <button type="button" id="backToTheStoreBtn" class="btn btn-primary">Go back to the store</button>

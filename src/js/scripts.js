@@ -251,27 +251,37 @@ function checkIfItIsALoginSession(){
         const loginPage = document.getElementById('loginPage');
         const appPage = document.getElementById('appPage');
         const adminNavLink = document.getElementById('adminNavLink');
-
+        let localLoginSessionStorage = sessionStorage.getItem('loginSession');
+        let fullnameAdmin = document.getElementById('fullnameAdmin');  
+        
         if(window.location.href.indexOf('admin') != -1){
           loginPage.hidden = true;
           appPage.hidden = false;
+          fullnameAdmin.innerText = localLoginSessionStorage;
         } else {
           adminNavLink.hidden = true;
           sessionLoginLink.hidden = false;
+          fullnameAdmin.innerText = localLoginSessionStorage;
         }
         console.log('este');
-    } else {      
+    } else {    
+        
         if(window.location.href == ''){
           sessionLoginLink.hidden = true;
+          fullnameAdmin.innerText = localLoginSessionStorage;
         } else if(window.location.href.indexOf('category') != -1){
           sessionLoginLink.hidden = true;
+          fullnameAdmin.innerText = localLoginSessionStorage;
         } else if(window.location.href.indexOf('cart') != -1){
           sessionLoginLink.hidden = true;
         } else if(window.location.href.indexOf('details') != -1){
           sessionLoginLink.hidden = true;
+        } else if(window.location.href.indexOf('search') != -1){
+          sessionLoginLink.hidden = true;
         } else if(window.location.href.indexOf('admin') != -1){
           sessionLoginLink.hidden = false;
         }
+        fullnameAdmin.innerText = localLoginSessionStorage;
         console.log('nu este');
     }
 }
