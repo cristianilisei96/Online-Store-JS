@@ -43,7 +43,7 @@
 		</div>
 	</div>
 </div>
-<div id="appPage">
+<div id="appPage" hidden>
 	<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
 		<div class="container">
 		  	<a class="navbar-brand color-default" href="index.html">Ecommerce</a>
@@ -68,21 +68,17 @@
 								<span id="cartItemsNumber" class="text-white bg-success"></span>
 							</a>
 						</li>
-						<li id="adminNavLink" class="nav-item">
-							<a class="nav-link text-white" href="admin.html">
-								<i class="fas fa-user-lock"></i> Admin
+						<li id="sessionLoginLink" class="nav-item dropdown">
+							<a class="nav-link color-default dropdown-toggle" type="button" id="dropdownSessionLogin" data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="fas fa-user-secret"></i> 
+									<span id="fullnameAdmin"> Cristian Ilisei</span>
 							</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-								<i class="fas fa-user-secret"></i> Cristian Ilisei
-							</a>
-							<ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton1">
-							  <li>
-								  <a class="dropdown-item active bg-success no-hover" href="admin.html">Dashboard</a>
+							<ul class="dropdown-menu bg-dark" aria-labelledby="dropdownSessionLogin">
+							  	<li>
+									<a class="dropdown-item active bg-success no-hover" href="admin.html">Dashboard</a>
 								</li>
-							  <li>
-								  <a class="dropdown-item notactive text-white no-hover" href="#">Logout</a>
+							  	<li>
+									<a id="logoutBtn" class="dropdown-item notactive text-white no-hover" href="#">Logout</a>
 								</li>
 							</ul>
 						</li>
@@ -110,7 +106,31 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 offset-md-3">
-						test
+						<div class="modal-body">
+							<div class="form-floating mb-2">
+								<input type="text" id="newTitle" class="form-control" placeholder="product newTitle">
+								<label for="newTitle">Product Name</label>
+							</div>
+							<div class="form-floating mb-2">
+								<input type="text" id="newImage" class="form-control" placeholder="product newImage">
+								<label for="newImage">Product newImage URL</label>
+							</div>
+							<div class="form-floating mb-2">
+								<input type="text" id="newPrice" class="form-control" placeholder="product newPrice">
+								<label for="newPrice">Product newPrice</label>
+							</div>
+							<div class="form-floating mb-2">
+								<input type="text" id="newStock" class="form-control" placeholder="product newStock">
+								<label for="newStock">Product newStock</label>
+							</div>
+							<div class="form-floating">
+								<textarea id="newDescription" class="form-control" placeholder="Product newDescription"></textarea>
+								<label for="newDescription">Product newDescription</label>
+							</div>
+							<button class="btn btn-success btn-secondary btn-block" id="updateProductBtn" data-bs-dismiss="modal" aria-label="Close">
+								Update Product
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -239,40 +259,6 @@
 				</div>
 				<div class="modal-footer text-center">
 					<button class="btn btn-success btn-secondary btn-block" id="add-product" data-bs-dismiss="modal" aria-label="Close">
-						Add Product
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Modal to add new product -->
-	<div class="modal col-11 fade" id="updateProductModal" tabindex="-1" aria-labelledby="updateProductModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header bg-success">
-					<h5 class="modal-title" id="updateProductModalLabel">Add new product</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<div class="form-floating mb-2">
-						<input type="text" id="newTitle" class="form-control" placeholder="product title" id="floatingProductName"/>
-						<label for="floatingProductName">Product Name</label>
-					</div>
-					<div class="form-floating mb-2">
-						<input type="text" id="newImage" class="form-control" placeholder="product image" id="floatingProductImageURL"/>
-						<label for="floatingProductImageURL">Product Image URL</label>
-					</div>
-					<div class="form-floating mb-2">
-						<input type="text"	id="newPrice" class="form-control" placeholder="product price" id="floatingProductPrice"/>
-						<label for="floatingProductPrice">Product Price</label>
-					</div>
-					<div class="form-floating">
-						<textarea id="description" class="form-control" placeholder="Product description" id="floatingTextarea"></textarea>
-						<label for="floatingTextarea">Product description</label>
-					  </div>
-				</div>
-				<div class="modal-footer text-center">
-					<button class="btn btn-success btn-secondary btn-block" id="updateProduct" data-bs-dismiss="modal" aria-label="Close">
 						Add Product
 					</button>
 				</div>

@@ -10,7 +10,7 @@ const categoryFilterURL = 'https://61363d1a8700c50017ef54c3.mockapi.io/products?
 let currentLocation = window.location;
 
 if(currentLocation.href.indexOf(searchParam) != -1) {
-
+    // console.log(currentLocation.href.indexOf(searchParam) != -1);
     http.get(categoryFilterURL).then((products) => ui.showProductsToUsers(products));
 
     if(searchParam === 'mac') {

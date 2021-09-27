@@ -239,4 +239,48 @@ function goToHome(){
 // Add modals to html pages
 $(function(){
   $("#modals").load("modals.html");
-})
+});
+
+
+// Script login local session storage
+let localLoginSessionStorage = sessionStorage.getItem('loginSession');
+let sessionLoginLink = document.getElementById('sessionLoginLink');
+
+function checkIfItIsALoginSession(){
+    if(localLoginSessionStorage) {
+        const loginPage = document.getElementById('loginPage');
+        const appPage = document.getElementById('appPage');
+        const adminNavLink = document.getElementById('adminNavLink');
+
+        if(window.location.href.indexOf('admin') != -1){
+          loginPage.hidden = true;
+          appPage.hidden = false;
+        } else {
+          adminNavLink.hidden = true;
+          sessionLoginLink.hidden = false;
+        }
+        console.log('este');
+    } else {      
+        if(window.location.href == ''){
+          sessionLoginLink.hidden = true;
+        } else if(window.location.href.indexOf('category') != -1){
+          sessionLoginLink.hidden = true;
+        } else if(window.location.href.indexOf('cart') != -1){
+          sessionLoginLink.hidden = true;
+        } else if(window.location.href.indexOf('details') != -1){
+          sessionLoginLink.hidden = true;
+        } else if(window.location.href.indexOf('admin') != -1){
+          sessionLoginLink.hidden = false;
+        }
+        console.log('nu este');
+    }
+}
+
+checkIfItIsALoginSession();
+
+logoutBtn.addEventListener('click', destroyLoginSession);
+
+function destroyLoginSession(){
+    sessionStorage.removeItem('loginSession');
+    window.location.reload();
+}

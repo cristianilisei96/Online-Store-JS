@@ -88,18 +88,22 @@ class UI {
             output += 
                 `<tr class="align-middle">
                     <th scope="row">
-                        <img src="${product.image}" class="" alt="${product.name}" width="100">
+                        <a href="details?id=${product.id}">
+                            <img src="${product.image}" alt="${product.name}" class="img-sm">
+                        </a>
                     </th>
-                    <td>
-                        ${product.name}
+                    <td class="text-nowrap">
+                        <a href="details?id=${product.id}">
+                            <h6 class="m-0">${product.name}</h6>
+                        </a>
                     </td>
                     <td>
-                        ${product.price}
+                        <p class="m-0 fw-bold color-default">$${product.price}</p>
                     </td>
                     <td>
-                        ${product.stock}
+                        <p class="m-0 fw-bold">${product.stock}</p>
                     </td>
-                    <td id="actionsBtns">
+                    <td id="actionsBtns" class="text-nowrap">
                         <button type="button" class="btn btn-warning update" id="${product.id}">
                             <i class="fas fa-pencil-alt"></i>
                         </button>

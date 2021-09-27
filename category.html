@@ -38,10 +38,23 @@
 								<span id="cartItemsNumber" class="text-white bg-success"></span>
 							</a>
 						</li>
-						<li class="nav-item">
+						<li id="adminNavLink" class="nav-item">
 							<a class="nav-link text-white" href="admin.html">
 								<i class="fas fa-user-lock"></i> Admin
 							</a>
+						</li>
+						<li id="sessionLoginLink" class="nav-item dropdown">
+							<a class="nav-link text-white dropdown-toggle" type="button" id="dropdownSessionLogin" data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="fas fa-user-secret"></i> Cristian Ilisei
+							</a>
+							<ul class="dropdown-menu bg-dark" aria-labelledby="dropdownSessionLogin">
+							  	<li>
+									<a class="dropdown-item notactive text-white no-hover" href="admin.html">Dashboard</a>
+								</li>
+							  	<li>
+									<a id="logoutBtn" class="dropdown-item notactive text-white no-hover" href="#">Logout</a>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</div>

@@ -69,10 +69,12 @@ const loginBtn = document.getElementById('loginBtn');
 var objAdmin = [
     {
         email: "cristianilisei96@gmail.com",
+        fullname: "Cristian Ilisei",
         password: "Admin1"
     }, 
     {
         email: "admin@admin.com",
+        fullname: "admin",
         password: "admin"
     }
 ];
@@ -85,10 +87,14 @@ loginBtn.addEventListener('click', (e) => {
     e.preventDefault();
     for(let i = 0; i < objAdmin.length; i++) {
         if( email == objAdmin[i].email && password == objAdmin[i].password ){
-            loginPage.classList.add('d-none');
-            appPage.classList.add('d-block');
+            
+            loginPage.hidden = true;
+            appPage.hidden = false;
+            
             notify('loginSuccessfully','success','You have successfully logged in');
-            adminNavLink.classList.add('d-none');
+            sessionStorage.setItem('loginSession', 'ceva');
+            checkIfItIsALoginSession();
+            // window.location.reload();
         }
     }
 });
