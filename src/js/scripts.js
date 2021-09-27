@@ -240,7 +240,8 @@ function goToHome(){
 
 // Add modals to html pages
 $(function(){
-  $("#modals").load("modals.html");
+  $("#footer").load("./src/include/footer.html");
+  $("#modals").load("./src/include/modalsInfo.html");
 });
 
 
