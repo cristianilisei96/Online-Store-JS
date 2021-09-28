@@ -58,6 +58,8 @@ function notify(nameEvent, type, message) {
     var prefix = '<i class="fas fa-exclamation-circle"></i> '; 
   } else if(type == 'success' && nameEvent == 'addProductToJSON') {
     var prefix = '<i class="fas fa-cart-plus"></i> '; 
+  } else if(type == 'success' && nameEvent == 'editedProductToJSON') {
+    var prefix = '<i class="fas fa-wrench"></i> '; 
   } else if(type == 'danger' && nameEvent == "deleteProductFromJSON") {
     var prefix = '<i class="fas fa-info-circle"></i> ';
   } 
@@ -222,15 +224,7 @@ function addToCartFunction(e) {
         localStorage.setItem('cart', JSON.stringify(array));
         changeNumberOfProductsInCart();
     });
-
-    console.log('ai apasat pe path');
-    console.log();
   }
-}
-
-// Remove item from localStorage
-function removeItemFromLocalStorage(){
-  
 }
 
 // Script to redirect to home page
@@ -243,7 +237,6 @@ $(function(){
   $("#footer").load("./src/include/footer.html");
   $("#modals").load("./src/include/footerModalsInfo.html");
 });
-
 
 // Script login local session storage
 let localLoginSessionStorage = sessionStorage.getItem('loginSession');
@@ -266,9 +259,8 @@ function checkIfItIsALoginSession(){
           sessionLoginLink.hidden = false;
           fullnameAdmin.innerText = localLoginSessionStorage;
         }
-        console.log('este');
     } else {    
-        
+      
         if(window.location.href == ''){
           sessionLoginLink.hidden = true;
           fullnameAdmin.innerText = localLoginSessionStorage;
@@ -285,7 +277,6 @@ function checkIfItIsALoginSession(){
           sessionLoginLink.hidden = false;
         }
         fullnameAdmin.innerText = localLoginSessionStorage;
-        console.log('nu este');
     }
 }
 

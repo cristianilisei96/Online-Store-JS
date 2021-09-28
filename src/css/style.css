@@ -156,6 +156,10 @@ tr:last-child {
     box-shadow: none;
 }
 
+#description, #newDescription {
+    padding-bottom: 150px;
+}
+
 footer {
     padding: 20px 0;
 }
@@ -230,6 +234,13 @@ footer .copyright svg {
         width: 20px!important;
     }
 }
+
+@media (max-width: 767px) {
+    #icons-payment-methods {
+        margin-left: 15px;
+    }
+}
+
 @media (min-width: 481px) and (max-width: 767px) {
     
 }

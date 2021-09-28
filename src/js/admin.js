@@ -4,12 +4,17 @@ import { ui } from './ui.js';
 const productsAdminURL = 'https://61363d1a8700c50017ef54c3.mockapi.io/products/';
 
 // Get elem from html
+const updateProductBtn = document.getElementById('updateProductBtn');
+
+// Get elem of 'pages'
 const loginPage = document.getElementById('loginPage');
 const appPage = document.getElementById('appPage');
 
+// Get elem from admin 'page'
 const emailFieldAdmin = document.getElementById('emailFieldAdmin');
 const passwordFieldAdmin = document.getElementById('passwordFieldAdmin');
 const loginBtn = document.getElementById('loginBtn');
+const homepageBtn = document.getElementById('homepageBtn');
 
 var objAdmin = [
     {
@@ -25,12 +30,8 @@ const inputs = [
 ];
 
 inputs.forEach((input) => {
-    input.addEventListener('keydown', handler);
+    input.addEventListener('keydown', loginOnEnterKey);
 });
-
-function handler(e) {
-    loginOnEnterKey(e);
-}
 
 function loginOnEnterKey(e) {
     if (e.keyCode === 13) {
@@ -75,8 +76,6 @@ loginBtn.addEventListener('click', (e) => {
     loginFormValidation();
 });
 
-const homepageBtn = document.getElementById('homepageBtn');
-
 homepageBtn.addEventListener('click', goToHome);
 
 document.addEventListener('DOMContentLoaded', getProducts);
@@ -86,7 +85,6 @@ function getProducts() {
 }
 
 document.getElementById('add-product').addEventListener('click', addNewProduct);
-document.getElementById('products-container').addEventListener('click', updateProduct);
 document.getElementById('products-container').addEventListener('click', deleteProduct);
 document.getElementById('description').addEventListener('keypress', checkEnterHasBeenPressed);
 
@@ -122,14 +120,53 @@ function addNewProduct() {
     notify('addProductToJSON', 'success', 'The product has been successfully added to the database!');
 }
 
-function updateProduct(e) {
-    const newnameValue = document.getElementById('newTitle').value;
-    const newImageValue = document.getElementById('newImage').value;
-    const newPriceValue = Number(document.getElementById('newPrice').value);
-    const newStockValue = Number(document.getElementById('newStock').value);
-    const newDescriptionValue = document.getElementById('newDescription').value;
+document.getElementById('products-container').addEventListener('click', bringTheProductInfoToBeUpdated);
 
-    http.put(productsAdminURL, product).then(() => getProducts()); 
+function bringTheProductInfoToBeUpdated(e) {
+    const eventTargetOnBtn = e.target.classList.contains('updateBtn');
+    const eventTargetOnSVG = e.target.parentElement.classList.contains('updateBtn');
+    const eventTargetOnPath = e.target.parentElement.parentElement.classList.contains('updateBtn');
+    
+    if(eventTargetOnBtn){
+        let idProduct = e.target.value;
+        const productInfoURL = 'https://61363d1a8700c50017ef54c3.mockapi.io/products/' + idProduct;
+
+        fetch(productInfoURL)
+            .then((response) => response.json())
+            .then((objectProduct) => {
+                newName.value = objectProduct.name;
+                newImage.value = objectProduct.image;
+                newPrice.value = objectProduct.price;
+                newStock.value = objectProduct.stock;
+                newDescription.value = objectProduct.description;
+                updateProductBtn.value = objectProduct.id;  
+            });   
+    } else if(eventTargetOnSVG){
+        let idProduct = e.target.parentElement.id;
+        console.log(idProduct);
+    } else if(eventTargetOnPath){
+        let idProduct = e.target.parentElement.parentElement.id;
+        console.log(idProduct);
+    }
+}
+
+updateProductBtn.addEventListener('click', updateProduct);
+
+function updateProduct(e){
+    let idOfProductToBeUpdated = e.target.value;
+    const produtInfoURL = 'https://61363d1a8700c50017ef54c3.mockapi.io/products/' + idOfProductToBeUpdated;
+
+    const product = {
+        name: newName.value,
+        image: newImage.value,
+        price: newPrice.value,
+        stock: newStock.value,
+        description: newDescription.value
+    };
+
+    http.put(produtInfoURL, product)
+        .then(() => getProducts());
+    notify('editedProductToJSON', 'success', 'The product has been successfully modified');
 }
 
 function deleteProduct(e) {   

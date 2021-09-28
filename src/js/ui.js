@@ -107,7 +107,7 @@ class UI {
                         <p class="m-0 fw-bold">${product.stock}</p>
                     </td>
                     <td id="actionsBtns" class="text-nowrap">
-                        <button type="button" class="btn btn-warning updateBtn" id="${product.id}">
+                        <button type="button" class="btn btn-warning updateBtn" value="${product.id}" data-bs-toggle="modal" data-bs-target="#updateProductModal">
                             <i class="fas fa-pencil-alt"></i>
                         </button>
                         <button type="button" class="btn btn-danger deleteBtn" id="${product.id}">
