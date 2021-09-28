@@ -6,6 +6,10 @@ let cardShoppingCart = document.getElementById('cardShoppingCart');
 let cartContentStored = localStorage.getItem('cart');
 let productsOnCartStored = JSON.parse(cartContentStored);
 
+// Get elem of total price and total from html
+const totalPriceValue = document.getElementById('totalPriceValue');
+const totalValue = document.getElementById('totalValue');
+
 // Get buttons from checkout
 const continueShoppingBtn = document.getElementById('continueShoppingBtn');
 continueShoppingBtn.addEventListener('click', goToHome);
@@ -268,9 +272,6 @@ function removeProductFromCart(e){
         window.location.reload();
     } 
 }
-
-const totalPriceValue = document.getElementById('totalPriceValue');
-const totalValue = document.getElementById('totalValue');
 
 function updateCheckout(){
     let totalPriceCalculation = 0;

@@ -142,11 +142,33 @@ function bringTheProductInfoToBeUpdated(e) {
                 updateProductBtn.value = objectProduct.id;  
             });   
     } else if(eventTargetOnSVG){
-        let idProduct = e.target.parentElement.id;
-        console.log(idProduct);
+        let idProduct = e.target.parentElement.value;
+        const productInfoURL = 'https://61363d1a8700c50017ef54c3.mockapi.io/products/' + idProduct;
+
+        fetch(productInfoURL)
+            .then((response) => response.json())
+            .then((objectProduct) => {
+                newName.value = objectProduct.name;
+                newImage.value = objectProduct.image;
+                newPrice.value = objectProduct.price;
+                newStock.value = objectProduct.stock;
+                newDescription.value = objectProduct.description;
+                updateProductBtn.value = objectProduct.id;  
+            }); 
     } else if(eventTargetOnPath){
-        let idProduct = e.target.parentElement.parentElement.id;
-        console.log(idProduct);
+        let idProduct = e.target.parentElement.parentElement.value;
+        const productInfoURL = 'https://61363d1a8700c50017ef54c3.mockapi.io/products/' + idProduct;
+
+        fetch(productInfoURL)
+            .then((response) => response.json())
+            .then((objectProduct) => {
+                newName.value = objectProduct.name;
+                newImage.value = objectProduct.image;
+                newPrice.value = objectProduct.price;
+                newStock.value = objectProduct.stock;
+                newDescription.value = objectProduct.description;
+                updateProductBtn.value = objectProduct.id;  
+            });  
     }
 }
 

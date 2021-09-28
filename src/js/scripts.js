@@ -260,7 +260,7 @@ function checkIfItIsALoginSession(){
           fullnameAdmin.innerText = localLoginSessionStorage;
         }
     } else {    
-      
+
         if(window.location.href == ''){
           sessionLoginLink.hidden = true;
           fullnameAdmin.innerText = localLoginSessionStorage;
