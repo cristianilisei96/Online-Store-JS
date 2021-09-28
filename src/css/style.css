@@ -113,6 +113,10 @@ video {
     box-shadow: none;
 }
 
+#contentInfoProduct hr {
+    display: none!important;
+}
+
 #backgroundEmptyCart{
     background-image: url('../images/cart/bg.png');
     background-size: cover;
@@ -238,6 +242,9 @@ footer .copyright svg {
 @media (max-width: 767px) {
     #icons-payment-methods {
         margin-left: 15px;
+    }
+    #contentInfoProduct hr {
+        display: block!important;
     }
 }
 

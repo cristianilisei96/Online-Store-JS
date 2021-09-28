@@ -56,21 +56,22 @@ class UI {
 
     showProductDetails(product){
         this.containerDetailsProduct.innerHTML = 
-        `<div class="col-md-6 mb-4 text-center">
+        `<div class="col-md-6 mb-3 text-center">
             <img src="${product.image}" class="img-fluid" alt="${product.name}">
         </div>
-        <div class="col-md-6">
-            <div class="p-1">
-                <div class="mb-3">
+        <div class="col-md-6 my-auto">
+            <div id="contentInfoProduct" class="p-2">
+                <div id="nameProduct" class="text-xs-center text-sm-center text-md-start text-lg-start text-xl-start mb-3">
                     <h3>${product.name}</h3>
                 </div>
-                <p class="lead fw-bold">
+                <p class="lead fw-bold text-xs-center text-sm-center text-md-start text-lg-start text-xl-start">
                     <span class="color-default">$${product.price}</span>
                 </p>    
-                <p class="lead fw-bold">
+                <hr>
+                <p class="lead fw-bold text-xs-center text-sm-center text-md-start text-lg-start text-xl-start">
                     Description
                 </p>
-                <p>${product.description}.</p>
+                <p class="text-xs-center text-sm-center text-md-start text-lg-start text-xl-start">${product.description}.</p>
                 <div class="text-xs-center text-sm-center text-md-start text-lg-start text-xl-start">
                     <button class="btn btn-success addToCartBtn" id="${product.id}">
                         <i class="fas fa-cart-plus addToCartIcon"></i> Add to cart

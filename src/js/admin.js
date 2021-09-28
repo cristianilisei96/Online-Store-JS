@@ -189,6 +189,12 @@ function updateProduct(e){
     http.put(produtInfoURL, product)
         .then(() => getProducts());
     notify('editedProductToJSON', 'success', 'The product has been successfully modified');
+    newName.value = '';
+    newImage.value = '';
+    newPrice.value = '';
+    newStock.value = '';
+    newDescription.value = '';
+    updateProductBtn.value = ''; 
 }
 
 function deleteProduct(e) {   
