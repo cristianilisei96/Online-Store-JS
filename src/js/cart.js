@@ -13,11 +13,11 @@ const totalValue = document.getElementById('totalValue');
 // Get buttons from checkout
 const continueShoppingBtn = document.getElementById('continueShoppingBtn');
 continueShoppingBtn.addEventListener('click', goToHome);
-const clearCartBtn = document.getElementById('clearCartBtn');
+const cleanCartBtn = document.getElementById('cleanCartBtn');
 
 function checkCartLocalStorage(){
     if(cartContentStored === '[]'){
-        clearCartFunction();
+        cleanCartFunction();
     } else if(cartContentStored){        
         let bgEmptyCart = document.getElementById('backgroundEmptyCart');
         bgEmptyCart.classList.add('backgroundIsNotEmpty');
@@ -64,7 +64,7 @@ function checkCartLocalStorage(){
             tbodyProductsInCart.innerHTML = output;
         });
     } else {
-        clearCartBtn.disabled = true;
+        cleanCartBtn.disabled = true;
         let output = '';
             output += 
                 `<div id="customPaddingForBackground" class="p-5 text-center">
@@ -290,9 +290,9 @@ function updateCheckout(){
 
 updateCheckout();
 
-clearCartBtn.addEventListener('click', clearCartFunction);
+cleanCartBtn.addEventListener('click', cleanCartFunction);
 
-function clearCartFunction(){
+function cleanCartFunction(){
     localStorage.removeItem('cart');
     window.location.reload();
 }
