@@ -27,7 +27,7 @@ function checkCartLocalStorage(){
                 `<tr class="align-middle">
                     <td>
                         <a href="details?id=${product.id}">
-                            <img src="${product.image}" class="img-sm">
+                            <img src="${product.image}" class="img-sm" alt="${product.name}">
                         </a>
                     </td>
                     <td class="text-nowrap">
