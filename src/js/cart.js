@@ -299,5 +299,6 @@ cleanCartBtn.addEventListener('click', cleanCartFunction);
 function cleanCartFunction(){
     localStorage.removeItem('cart');
     // window.location.reload();
+    checkCartLocalStorage();
     updateCheckout();
 }
