@@ -178,7 +178,9 @@ function increaseProductQuantity(e) {
             }
         }
         localStorage.setItem('cart', JSON.stringify(array));
-        window.location.reload();
+        // window.location.reload();
+        checkCartLocalStorage();
+        updateCheckout();
     } else if(eventTargetOnSVG){
         const idOfItemToBeIncreased = e.target.parentElement.value;
         if(localStorage.getItem('cart'))
