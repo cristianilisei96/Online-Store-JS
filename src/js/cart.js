@@ -196,9 +196,7 @@ function increaseProductQuantity(e) {
             }
         }
         localStorage.setItem('cart', JSON.stringify(array));
-        // window.location.reload();
-        checkCartLocalStorage();
-        updateCheckout();
+        window.location.reload();
     } else if(eventTargetOnSVG){
         const idOfItemToBeIncreased = e.target.parentElement.value;
         if(localStorage.getItem('cart'))
@@ -298,7 +296,5 @@ cleanCartBtn.addEventListener('click', cleanCartFunction);
 
 function cleanCartFunction(){
     localStorage.removeItem('cart');
-    // window.location.reload();
-    checkCartLocalStorage();
-    updateCheckout();
+    window.location.reload();
 }
